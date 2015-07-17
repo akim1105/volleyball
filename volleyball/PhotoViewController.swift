@@ -14,6 +14,7 @@ class PhotoViewController: UIViewController,UICollectionViewDataSource,UICollect
     @IBOutlet var collectionView: UICollectionView!
     
     var photoArray = [UIImage]()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
