@@ -7,12 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		413192C31B520F4B00309F82 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413192C21B520F4B00309F82 /* CategoryTableViewController.swift */; };
+		413192C91B522E9100309F82 /* Category2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413192C81B522E9100309F82 /* Category2TableViewController.swift */; };
+		413192CB1B523EDC00309F82 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413192CA1B523EDC00309F82 /* HomePageViewController.swift */; };
+		415634B01B48CDD0003C800D /* RankTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415634AF1B48CDD0003C800D /* RankTableViewController.swift */; };
+		415634B31B48DB12003C800D /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415634B11B48DB12003C800D /* MovieTableViewCell.swift */; };
+		415634B41B48DB12003C800D /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 415634B21B48DB12003C800D /* MovieTableViewCell.xib */; };
+		415634BC1B48F497003C800D /* asdf.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 415634B51B48F497003C800D /* asdf.jpg */; };
+		415634BD1B48F497003C800D /* haikei.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 415634B61B48F497003C800D /* haikei.jpg */; };
+		415634BE1B48F497003C800D /* higasi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 415634B71B48F497003C800D /* higasi.jpg */; };
+		415634BF1B48F497003C800D /* hukuoka.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 415634B81B48F497003C800D /* hukuoka.jpg */; };
+		415634C01B48F497003C800D /* kaikai.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 415634B91B48F497003C800D /* kaikai.jpg */; };
+		415634C11B48F497003C800D /* seijo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 415634BA1B48F497003C800D /* seijo.jpg */; };
+		415634C21B48F497003C800D /* seitoku.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 415634BB1B48F497003C800D /* seitoku.jpg */; };
+		415634C61B48F7F7003C800D /* higasi2.png in Resources */ = {isa = PBXBuildFile; fileRef = 415634C51B48F7F7003C800D /* higasi2.png */; };
+		41580E4B1B4F7E8200118654 /* hukuoka3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 41580E4A1B4F7E8200118654 /* hukuoka3.jpg */; };
+		41580E4D1B4F7E9400118654 /* kaikai3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 41580E4C1B4F7E9400118654 /* kaikai3.jpg */; };
+		41580E521B4FB56D00118654 /* movie2.png in Resources */ = {isa = PBXBuildFile; fileRef = 41580E511B4FB56D00118654 /* movie2.png */; };
+		41580E541B4FC8A900118654 /* good.png in Resources */ = {isa = PBXBuildFile; fileRef = 41580E531B4FC8A800118654 /* good.png */; };
+		41580E561B4FC9BF00118654 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41580E551B4FC9BF00118654 /* PhotoViewController.swift */; };
+		416DA2831B4FDE55003747C8 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416DA2821B4FDE55003747C8 /* InfoViewController.swift */; };
+		416DA2861B4FE37B003747C8 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416DA2841B4FE37B003747C8 /* InfoTableViewCell.swift */; };
+		416DA2871B4FE37B003747C8 /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 416DA2851B4FE37B003747C8 /* InfoTableViewCell.xib */; };
+		417CB34A1B53FC5200CC00C9 /* SerchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417CB3491B53FC5200CC00C9 /* SerchTableViewController.swift */; };
+		417CB34C1B54001400CC00C9 /* FavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417CB34B1B54001400CC00C9 /* FavoriteTableViewController.swift */; };
 		41B62E6E1B4673EC004A4EE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B62E6D1B4673EC004A4EE1 /* AppDelegate.swift */; };
 		41B62E701B4673EC004A4EE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B62E6F1B4673EC004A4EE1 /* ViewController.swift */; };
 		41B62E731B4673EC004A4EE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41B62E711B4673EC004A4EE1 /* Main.storyboard */; };
 		41B62E751B4673EC004A4EE1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41B62E741B4673EC004A4EE1 /* Images.xcassets */; };
 		41B62E781B4673EC004A4EE1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41B62E761B4673EC004A4EE1 /* LaunchScreen.xib */; };
 		41B62E841B4673EC004A4EE1 /* volleyballTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B62E831B4673EC004A4EE1 /* volleyballTests.swift */; };
+		41C922051B53732600E7103B /* good2.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C922041B53732600E7103B /* good2.png */; };
+		41C922071B53745900E7103B /* movie3.png in Resources */ = {isa = PBXBuildFile; fileRef = 41C922061B53745900E7103B /* movie3.png */; };
+		41E298411B4BEF58003611E4 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E298401B4BEF58003611E4 /* MovieViewController.swift */; };
+		41EDDC281B59196200912880 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41EDDC221B59196200912880 /* Icon-40@2x.png */; };
+		41EDDC291B59196200912880 /* Icon-60@2x-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 41EDDC231B59196200912880 /* Icon-60@2x-1.png */; };
+		41EDDC2A1B59196200912880 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41EDDC241B59196200912880 /* Icon-60@2x.png */; };
+		41EDDC2B1B59196200912880 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41EDDC251B59196200912880 /* Icon-60@3x.png */; };
+		41EDDC2C1B59196200912880 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41EDDC261B59196200912880 /* Icon-Small@2x.png */; };
+		41EDDC2D1B59196200912880 /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41EDDC271B59196200912880 /* Icon-Small@3x.png */; };
+		C67D8F339D9A987F7D465318 /* libPods-volleyball.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8106EBEA270A682BC27D28 /* libPods-volleyball.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +60,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		146C9AA57A7739B2DCB92176 /* Pods-volleyball.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-volleyball.debug.xcconfig"; path = "Pods/Target Support Files/Pods-volleyball/Pods-volleyball.debug.xcconfig"; sourceTree = "<group>"; };
+		413192C21B520F4B00309F82 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		413192C81B522E9100309F82 /* Category2TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category2TableViewController.swift; sourceTree = "<group>"; };
+		413192CA1B523EDC00309F82 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		415634AF1B48CDD0003C800D /* RankTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankTableViewController.swift; sourceTree = "<group>"; };
+		415634B11B48DB12003C800D /* MovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		415634B21B48DB12003C800D /* MovieTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
+		415634B51B48F497003C800D /* asdf.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = asdf.jpg; sourceTree = "<group>"; };
+		415634B61B48F497003C800D /* haikei.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = haikei.jpg; sourceTree = "<group>"; };
+		415634B71B48F497003C800D /* higasi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = higasi.jpg; sourceTree = "<group>"; };
+		415634B81B48F497003C800D /* hukuoka.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hukuoka.jpg; sourceTree = "<group>"; };
+		415634B91B48F497003C800D /* kaikai.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kaikai.jpg; sourceTree = "<group>"; };
+		415634BA1B48F497003C800D /* seijo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = seijo.jpg; sourceTree = "<group>"; };
+		415634BB1B48F497003C800D /* seitoku.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = seitoku.jpg; sourceTree = "<group>"; };
+		415634C51B48F7F7003C800D /* higasi2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = higasi2.png; sourceTree = "<group>"; };
+		41580E4A1B4F7E8200118654 /* hukuoka3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hukuoka3.jpg; sourceTree = "<group>"; };
+		41580E4C1B4F7E9400118654 /* kaikai3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kaikai3.jpg; sourceTree = "<group>"; };
+		41580E511B4FB56D00118654 /* movie2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movie2.png; sourceTree = "<group>"; };
+		41580E531B4FC8A800118654 /* good.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = good.png; sourceTree = "<group>"; };
+		41580E551B4FC9BF00118654 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		416DA2821B4FDE55003747C8 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		416DA2841B4FE37B003747C8 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
+		416DA2851B4FE37B003747C8 /* InfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
+		417CB3491B53FC5200CC00C9 /* SerchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerchTableViewController.swift; sourceTree = "<group>"; };
+		417CB34B1B54001400CC00C9 /* FavoriteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewController.swift; sourceTree = "<group>"; };
 		41B62E681B4673EC004A4EE1 /* volleyball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = volleyball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41B62E6C1B4673EC004A4EE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41B62E6D1B4673EC004A4EE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +95,18 @@
 		41B62E7D1B4673EC004A4EE1 /* volleyballTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = volleyballTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41B62E821B4673EC004A4EE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41B62E831B4673EC004A4EE1 /* volleyballTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = volleyballTests.swift; sourceTree = "<group>"; };
+		41C922041B53732600E7103B /* good2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = good2.png; sourceTree = "<group>"; };
+		41C922061B53745900E7103B /* movie3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movie3.png; sourceTree = "<group>"; };
+		41E298401B4BEF58003611E4 /* MovieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
+		41E75D901B552881006C83E0 /* volleyball-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "volleyball-Bridging-Header.h"; sourceTree = "<group>"; };
+		41EDDC221B59196200912880 /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
+		41EDDC231B59196200912880 /* Icon-60@2x-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x-1.png"; sourceTree = "<group>"; };
+		41EDDC241B59196200912880 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		41EDDC251B59196200912880 /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
+		41EDDC261B59196200912880 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		41EDDC271B59196200912880 /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@3x.png"; sourceTree = "<group>"; };
+		5EA7E30AD7A80E09A7D8F09C /* Pods-volleyball.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-volleyball.release.xcconfig"; path = "Pods/Target Support Files/Pods-volleyball/Pods-volleyball.release.xcconfig"; sourceTree = "<group>"; };
+		CF8106EBEA270A682BC27D28 /* libPods-volleyball.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-volleyball.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C67D8F339D9A987F7D465318 /* libPods-volleyball.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +128,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		334BBD47ADF006241ECFA97E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				146C9AA57A7739B2DCB92176 /* Pods-volleyball.debug.xcconfig */,
+				5EA7E30AD7A80E09A7D8F09C /* Pods-volleyball.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		41B62E5F1B4673EC004A4EE1 = {
 			isa = PBXGroup;
 			children = (
 				41B62E6A1B4673EC004A4EE1 /* volleyball */,
 				41B62E801B4673EC004A4EE1 /* volleyballTests */,
 				41B62E691B4673EC004A4EE1 /* Products */,
+				334BBD47ADF006241ECFA97E /* Pods */,
+				AD52C338FA6A44EEA11317BC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +160,28 @@
 		41B62E6A1B4673EC004A4EE1 /* volleyball */ = {
 			isa = PBXGroup;
 			children = (
+				41EDDC211B59196100912880 /* icon */,
+				41B62E931B469204004A4EE1 /* Images */,
 				41B62E6D1B4673EC004A4EE1 /* AppDelegate.swift */,
 				41B62E6F1B4673EC004A4EE1 /* ViewController.swift */,
 				41B62E711B4673EC004A4EE1 /* Main.storyboard */,
+				415634AF1B48CDD0003C800D /* RankTableViewController.swift */,
+				413192C21B520F4B00309F82 /* CategoryTableViewController.swift */,
+				413192C81B522E9100309F82 /* Category2TableViewController.swift */,
+				417CB3491B53FC5200CC00C9 /* SerchTableViewController.swift */,
+				417CB34B1B54001400CC00C9 /* FavoriteTableViewController.swift */,
+				41E298401B4BEF58003611E4 /* MovieViewController.swift */,
+				415634B11B48DB12003C800D /* MovieTableViewCell.swift */,
+				415634B21B48DB12003C800D /* MovieTableViewCell.xib */,
+				41580E551B4FC9BF00118654 /* PhotoViewController.swift */,
+				416DA2821B4FDE55003747C8 /* InfoViewController.swift */,
+				416DA2841B4FE37B003747C8 /* InfoTableViewCell.swift */,
+				416DA2851B4FE37B003747C8 /* InfoTableViewCell.xib */,
+				413192CA1B523EDC00309F82 /* HomePageViewController.swift */,
 				41B62E741B4673EC004A4EE1 /* Images.xcassets */,
 				41B62E761B4673EC004A4EE1 /* LaunchScreen.xib */,
 				41B62E6B1B4673EC004A4EE1 /* Supporting Files */,
+				41E75D901B552881006C83E0 /* volleyball-Bridging-Header.h */,
 			);
 			path = volleyball;
 			sourceTree = "<group>";
@@ -112,6 +211,48 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		41B62E931B469204004A4EE1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				41580E4C1B4F7E9400118654 /* kaikai3.jpg */,
+				41580E4A1B4F7E8200118654 /* hukuoka3.jpg */,
+				415634C51B48F7F7003C800D /* higasi2.png */,
+				41C922041B53732600E7103B /* good2.png */,
+				41C922061B53745900E7103B /* movie3.png */,
+				415634B81B48F497003C800D /* hukuoka.jpg */,
+				415634B91B48F497003C800D /* kaikai.jpg */,
+				41580E511B4FB56D00118654 /* movie2.png */,
+				41580E531B4FC8A800118654 /* good.png */,
+				415634B51B48F497003C800D /* asdf.jpg */,
+				415634B61B48F497003C800D /* haikei.jpg */,
+				415634B71B48F497003C800D /* higasi.jpg */,
+				415634BA1B48F497003C800D /* seijo.jpg */,
+				415634BB1B48F497003C800D /* seitoku.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		41EDDC211B59196100912880 /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				41EDDC221B59196200912880 /* Icon-40@2x.png */,
+				41EDDC231B59196200912880 /* Icon-60@2x-1.png */,
+				41EDDC241B59196200912880 /* Icon-60@2x.png */,
+				41EDDC251B59196200912880 /* Icon-60@3x.png */,
+				41EDDC261B59196200912880 /* Icon-Small@2x.png */,
+				41EDDC271B59196200912880 /* Icon-Small@3x.png */,
+			);
+			path = icon;
+			sourceTree = "<group>";
+		};
+		AD52C338FA6A44EEA11317BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CF8106EBEA270A682BC27D28 /* libPods-volleyball.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +260,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 41B62E871B4673EC004A4EE1 /* Build configuration list for PBXNativeTarget "volleyball" */;
 			buildPhases = (
+				B34B2C1624F56DDA9AAC4D3D /* Check Pods Manifest.lock */,
 				41B62E641B4673EC004A4EE1 /* Sources */,
 				41B62E651B4673EC004A4EE1 /* Frameworks */,
 				41B62E661B4673EC004A4EE1 /* Resources */,
+				2E62464C0C2F6253C4430BA0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -192,9 +335,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41580E4B1B4F7E8200118654 /* hukuoka3.jpg in Resources */,
+				415634BD1B48F497003C800D /* haikei.jpg in Resources */,
 				41B62E731B4673EC004A4EE1 /* Main.storyboard in Resources */,
+				41EDDC2D1B59196200912880 /* Icon-Small@3x.png in Resources */,
+				41C922051B53732600E7103B /* good2.png in Resources */,
+				41580E4D1B4F7E9400118654 /* kaikai3.jpg in Resources */,
+				41C922071B53745900E7103B /* movie3.png in Resources */,
+				41EDDC2B1B59196200912880 /* Icon-60@3x.png in Resources */,
+				41580E541B4FC8A900118654 /* good.png in Resources */,
+				415634C11B48F497003C800D /* seijo.jpg in Resources */,
+				415634C01B48F497003C800D /* kaikai.jpg in Resources */,
+				41EDDC281B59196200912880 /* Icon-40@2x.png in Resources */,
+				415634BF1B48F497003C800D /* hukuoka.jpg in Resources */,
+				415634BC1B48F497003C800D /* asdf.jpg in Resources */,
+				415634BE1B48F497003C800D /* higasi.jpg in Resources */,
+				41EDDC291B59196200912880 /* Icon-60@2x-1.png in Resources */,
+				415634B41B48DB12003C800D /* MovieTableViewCell.xib in Resources */,
+				41EDDC2A1B59196200912880 /* Icon-60@2x.png in Resources */,
 				41B62E781B4673EC004A4EE1 /* LaunchScreen.xib in Resources */,
+				415634C21B48F497003C800D /* seitoku.jpg in Resources */,
 				41B62E751B4673EC004A4EE1 /* Images.xcassets in Resources */,
+				416DA2871B4FE37B003747C8 /* InfoTableViewCell.xib in Resources */,
+				41EDDC2C1B59196200912880 /* Icon-Small@2x.png in Resources */,
+				415634C61B48F7F7003C800D /* higasi2.png in Resources */,
+				41580E521B4FB56D00118654 /* movie2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,13 +372,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2E62464C0C2F6253C4430BA0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-volleyball/Pods-volleyball-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B34B2C1624F56DDA9AAC4D3D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		41B62E641B4673EC004A4EE1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				417CB34C1B54001400CC00C9 /* FavoriteTableViewController.swift in Sources */,
 				41B62E701B4673EC004A4EE1 /* ViewController.swift in Sources */,
+				416DA2861B4FE37B003747C8 /* InfoTableViewCell.swift in Sources */,
+				41E298411B4BEF58003611E4 /* MovieViewController.swift in Sources */,
 				41B62E6E1B4673EC004A4EE1 /* AppDelegate.swift in Sources */,
+				416DA2831B4FDE55003747C8 /* InfoViewController.swift in Sources */,
+				413192C31B520F4B00309F82 /* CategoryTableViewController.swift in Sources */,
+				413192C91B522E9100309F82 /* Category2TableViewController.swift in Sources */,
+				413192CB1B523EDC00309F82 /* HomePageViewController.swift in Sources */,
+				415634B31B48DB12003C800D /* MovieTableViewCell.swift in Sources */,
+				417CB34A1B53FC5200CC00C9 /* SerchTableViewController.swift in Sources */,
+				415634B01B48CDD0003C800D /* RankTableViewController.swift in Sources */,
+				41580E561B4FC9BF00118654 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,21 +543,28 @@
 		};
 		41B62E881B4673EC004A4EE1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 146C9AA57A7739B2DCB92176 /* Pods-volleyball.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = volleyball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "volleyball/volleyball-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		41B62E891B4673EC004A4EE1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EA7E30AD7A80E09A7D8F09C /* Pods-volleyball.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = volleyball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "volleyball/volleyball-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -405,6 +621,7 @@
 				41B62E891B4673EC004A4EE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		41B62E8A1B4673EC004A4EE1 /* Build configuration list for PBXNativeTarget "volleyballTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +630,7 @@
 				41B62E8C1B4673EC004A4EE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

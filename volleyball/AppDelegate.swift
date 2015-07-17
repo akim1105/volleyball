@@ -15,6 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        var Id = "01m2hhGpnd2L0oiKuzVT725DgtS3OabHMZTGQr5n"
+        var Key = "hF6nAiv5IUTS4qKzoI12u7xKpi5B7D3syWx7kuzF"
+        
+        // MARK: - Parse
+        Parse.setApplicationId(Id, clientKey: Key)
+        PFUser.enableAutomaticUser()
+        var defaultACL = PFACL()
+        PFACL.setDefaultACL(defaultACL, withAccessForCurrentUser: true)
         // Override point for customization after application launch.
         return true
     }
@@ -40,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
 
 }
 
