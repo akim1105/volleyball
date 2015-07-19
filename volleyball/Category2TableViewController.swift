@@ -12,9 +12,19 @@ class Category2TableViewController: UITableViewController, UIWebViewDelegate  {
     
     @IBOutlet var table: UITableView!
     
-    var movieNameArray = [String]()
-    var like = [Int]()
-    var look = [Int]()
+    var movieArray = [PFObject]() // Parseから取ってきたデータを全部入れるための配列
+    var movieNameArray = [String]() //動画のタイトルを入れる用の配列
+    var good = [Int]()
+    var count = [Int]()
+    var time = [String]()
+    var URLArray = [String]()
+    var imageArray = [PFFile]()
+    var images = [UIImage]()
+
+    
+    //var movieNameArray = [String]()
+    //var like = [Int]()
+   // var look = [Int]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +35,29 @@ class Category2TableViewController: UITableViewController, UIWebViewDelegate  {
         tableView.registerNib(UINib(nibName: "MovieTableViewCell", bundle: nil),
             forCellReuseIdentifier: "Cell")
         
-        movieNameArray = ["＜春高バレー＞　星城高校 東京体育館","い","う"]
-        like = [3,2,1]
-        look = [12,23,34]
+        self.loadData { (objects, error) -> () in
+            self.movieArray = objects
+            
+            for object in objects {
+                self.imageArray.append(object.valueForKey("Image") as! PFFile)
+                for imageFile in self.imageArray {
+                    imageFile.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
+                        if(error == nil) {
+                            self.images.append(UIImage(data: imageData!)!)
+                            self.table.reloadData()
+                        }
+                    })
+                    
+                }
+            }
+        }
+
+        
+        
+        
+       // movieNameArray = ["＜春高バレー＞　星城高校 東京体育館","い","う"]
+       // like = [3,2,1]
+       // look = [12,23,34]
 
 
         // Uncomment the following line to preserve selection between presentations
@@ -65,14 +95,48 @@ class Category2TableViewController: UITableViewController, UIWebViewDelegate  {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as!MovieTableViewCell
         
+        for object in movieArray {
+            NSLog("%@", object)
+            movieNameArray.append(object.valueForKey("title") as! String)
+            good.append(object.valueForKey("good") as! Int)
+            count.append(object.valueForKey("count") as! Int)
+            time.append(object.valueForKey("time") as! String)
+            URLArray.append(object.valueForKey("URL") as! String)
+            // TODO: get image
+        }
+
+        
+        
         cell.label?.text = movieNameArray[indexPath.row]
-        cell.likelabel?.text = String(like[indexPath.row])
-        cell.looklabel?.text = String(look[indexPath.row])
+        cell.likelabel?.text = String(good[indexPath.row])
+        cell.looklabel?.text = String(count[indexPath.row])
+        cell.timelabel?.text = String(time[indexPath.row])
+        cell.imageView?.image = images[indexPath.row]
+
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let ud = NSUserDefaults.standardUserDefaults()
+        ud.setObject(URLArray[indexPath.row], forKey: "URL")
+        ud.synchronize()
+        
         self.performSegueWithIdentifier("toMovie", sender: nil)
+    }
+
+    func loadData(callback:([PFObject]!, NSError!) -> ())  {
+        var query: PFQuery = PFQuery(className: "Movie")
+        query.orderByAscending("createdAt")
+        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            if (error != nil){
+                // エラー処理
+            }
+            for object in objects! {
+                self.imageArray.append(object.valueForKey("Image") as! PFFile)
+            }
+            callback(objects as! [PFObject], error)
+        }
     }
 
 
