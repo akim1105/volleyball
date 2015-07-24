@@ -4,6 +4,7 @@
 target 'volleyball' do
 pod 'Parse', '~> 1.7.5'
 pod 'SVProgressHUD'
+pod "XCDYouTubeKit", "~> 2.2.0"
 end
 
 target 'volleyballTests' do

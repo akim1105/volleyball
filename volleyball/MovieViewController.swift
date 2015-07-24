@@ -10,7 +10,7 @@ import UIKit
 
 class MovieViewController: UIViewController, UIWebViewDelegate {
     
-    @IBOutlet var webView: UIWebView!
+    @IBOutlet var containerView: UIView!
     
     var movieNameArray = [String]()
     var like = [Int]()
@@ -20,13 +20,10 @@ class MovieViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
 
         let movieURL = NSUserDefaults.standardUserDefaults().objectForKey("URL") as! String
-        webView.delegate = self
-        var url = NSURL(string: movieURL)
-        var urlRequest: NSURLRequest = NSURLRequest(URL: url!)
-        webView.allowsInlineMediaPlayback = true;
-        webView.loadRequest(urlRequest)
         
-        NSLog("%@",url!)
+        var videoPlayerViewController = XCDYouTubeVideoPlayerViewController(videoIdentifier: "MAvwYkDBXXo")
+        videoPlayerViewController.presentInView(containerView)
+        videoPlayerViewController.moviePlayer.play()
     }
 
     override func didReceiveMemoryWarning() {
