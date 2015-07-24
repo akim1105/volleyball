@@ -11,16 +11,13 @@ import UIKit
 class RankTableViewController: UITableViewController, UIWebViewDelegate {
     
     @IBOutlet var table: UITableView!
-    
-    var movieArray = [PFObject]() // Parseから取ってきたデータを全部入れるための配列
     var movieNameArray = [String]() //動画のタイトルを入れる用の配列
     var good = [Int]()
     var count = [Int]()
     var time = [String]()
     var URLArray = [String]()
-    var imageArray = [PFFile]()
     var images = [UIImage]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,67 +25,33 @@ class RankTableViewController: UITableViewController, UIWebViewDelegate {
         table.delegate = self
         
         tableView.registerNib(UINib(nibName: "MovieTableViewCell", bundle: nil),
-        forCellReuseIdentifier: "Cell")
-
-        self.loadData { (objects, error) -> () in
-            self.movieArray = objects
-            
-            for object in objects {
-                self.imageArray.append(object.valueForKey("Image") as! PFFile)
-                for imageFile in self.imageArray {
-                    imageFile.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
-                        if(error == nil) {
-                            self.images.append(UIImage(data: imageData!)!)
-                            self.table.reloadData()
-                        }
-                    })
-
-                }
-            }
-        }
+            forCellReuseIdentifier: "Cell")
         
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.loadData()
     }
-
+    
+    override func viewDidAppear(animated: Bool) {
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
         return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return movieArray.count
+        return movieNameArray.count
     }
     
-   
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! MovieTableViewCell
-        
-        for object in movieArray {
-            NSLog("%@", object)
-            movieNameArray.append(object.valueForKey("title") as! String)
-            good.append(object.valueForKey("good") as! Int)
-            count.append(object.valueForKey("count") as! Int)
-            time.append(object.valueForKey("time") as! String)
-            URLArray.append(object.valueForKey("URL") as! String)
-            // TODO: get image
-        }
         
         cell.label?.text = movieNameArray[indexPath.row]
         cell.likelabel?.text = String(good[indexPath.row])
@@ -96,10 +59,28 @@ class RankTableViewController: UITableViewController, UIWebViewDelegate {
         cell.timelabel?.text = String(time[indexPath.row])
         cell.imageView?.image = images[indexPath.row]
         
+        // セルの境界線
+        if (cell.respondsToSelector(Selector("setSeparatorInset:"))) {
+            cell.separatorInset = UIEdgeInsetsZero
+        }
+        if (cell.respondsToSelector(Selector("setLayoutMargins:"))) {
+            cell.layoutMargins = UIEdgeInsetsZero
+        }
+        
         return cell
     }
-
-
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if (self.tableView.respondsToSelector(Selector("setSeparatorInset:"))) {
+            self.tableView.separatorInset = UIEdgeInsetsZero
+        }
+        if (self.tableView.respondsToSelector(Selector("setLayoutMargins:"))) {
+            self.tableView.layoutMargins = UIEdgeInsetsZero
+        }
+    }
+    
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // TableViewのセルがタップされた時の処理
         // MovieViewControllerを取得してmovieVCに入れておく
@@ -110,17 +91,63 @@ class RankTableViewController: UITableViewController, UIWebViewDelegate {
         self.performSegueWithIdentifier("toMovie", sender: nil)
     }
     
-    func loadData(callback:([PFObject]!, NSError!) -> ())  {
+    // Get data from Parse
+    func loadData(){
+        SVProgressHUD.showWithStatus("ロード中", maskType: SVProgressHUDMaskType.Black)
+        
         var query: PFQuery = PFQuery(className: "Movie")
         query.orderByAscending("createdAt")
-        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-            if (error != nil){
-                // エラー処理
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]?, error: NSError?) -> Void in
+            if error != nil {
+                self.showErrorAlert(error!)
+            }else {
+                for object in objects! {
+                    NSLog("object == %@", object as! PFObject)
+                    self.movieNameArray.append(object.valueForKey("title") as! String)
+                    self.good.append(object.valueForKey("good") as! Int)
+                    self.count.append(object.valueForKey("count") as! Int)
+                    self.time.append(object.valueForKey("time") as! String)
+                    self.URLArray.append(object.valueForKey("URL") as! String)
+                    
+                    if object["Image"] != nil {
+                        let userImageFile = object.valueForKey("Image") as! PFFile
+                        self.images.append(UIImage(data:userImageFile.getData()!)!)
+                    }
+                }
+                self.table.reloadData()
+                SVProgressHUD.dismiss()
             }
-            for object in objects! {
-                self.imageArray.append(object.valueForKey("Image") as! PFFile)
-            }
-            callback(objects as! [PFObject], error)
         }
+    }
+    
+    func showErrorAlert(error: NSError) {
+        var errorMessage = error.description
+        
+        if error.code == 209 {
+            NSLog("session token == %@", PFUser.currentUser()!.sessionToken!)
+            errorMessage = "セッショントークンが切れました。ログアウトします。"
+            PFUser.currentUser()?.delete()
+            SVProgressHUD.showSuccessWithStatus("ログアウトしました", maskType: SVProgressHUDMaskType.Black)
+            self.dismissViewControllerAnimated(true, completion: nil)
+            PFUser.enableRevocableSessionInBackgroundWithBlock { (error: NSError?) -> Void in
+                println("Session token deprecated")
+            }
+        }
+        var alertController = UIAlertController(title: "通信エラー", message: errorMessage, preferredStyle: .Alert)
+        let okAction = UIAlertAction(title: "OK", style: .Cancel) {
+            action in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        alertController.addAction(okAction)
+        presentViewController(alertController, animated: true, completion: nil)
+        
+        if SVProgressHUD.isVisible() {
+            SVProgressHUD.dismiss()
+        }
+    }
+    
+    @IBAction func backToTop() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

@@ -46,6 +46,9 @@
 		41EDDC2B1B59196200912880 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41EDDC251B59196200912880 /* Icon-60@3x.png */; };
 		41EDDC2C1B59196200912880 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41EDDC261B59196200912880 /* Icon-Small@2x.png */; };
 		41EDDC2D1B59196200912880 /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41EDDC271B59196200912880 /* Icon-Small@3x.png */; };
+		AF380B6D1B6227C200F77D76 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF380B6A1B6227C200F77D76 /* Default-568h@2x.png */; };
+		AF380B6E1B6227C200F77D76 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF380B6B1B6227C200F77D76 /* Default-667h@2x.png */; };
+		AF380B6F1B6227C200F77D76 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF380B6C1B6227C200F77D76 /* Default-736h@3x.png */; };
 		C67D8F339D9A987F7D465318 /* libPods-volleyball.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8106EBEA270A682BC27D28 /* libPods-volleyball.a */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +109,9 @@
 		41EDDC261B59196200912880 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		41EDDC271B59196200912880 /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@3x.png"; sourceTree = "<group>"; };
 		5EA7E30AD7A80E09A7D8F09C /* Pods-volleyball.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-volleyball.release.xcconfig"; path = "Pods/Target Support Files/Pods-volleyball/Pods-volleyball.release.xcconfig"; sourceTree = "<group>"; };
+		AF380B6A1B6227C200F77D76 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		AF380B6B1B6227C200F77D76 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
+		AF380B6C1B6227C200F77D76 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		CF8106EBEA270A682BC27D28 /* libPods-volleyball.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-volleyball.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -160,24 +166,11 @@
 		41B62E6A1B4673EC004A4EE1 /* volleyball */ = {
 			isa = PBXGroup;
 			children = (
-				41EDDC211B59196100912880 /* icon */,
 				41B62E931B469204004A4EE1 /* Images */,
 				41B62E6D1B4673EC004A4EE1 /* AppDelegate.swift */,
-				41B62E6F1B4673EC004A4EE1 /* ViewController.swift */,
 				41B62E711B4673EC004A4EE1 /* Main.storyboard */,
-				415634AF1B48CDD0003C800D /* RankTableViewController.swift */,
-				413192C21B520F4B00309F82 /* CategoryTableViewController.swift */,
-				413192C81B522E9100309F82 /* Category2TableViewController.swift */,
-				417CB3491B53FC5200CC00C9 /* SerchTableViewController.swift */,
-				417CB34B1B54001400CC00C9 /* FavoriteTableViewController.swift */,
-				41E298401B4BEF58003611E4 /* MovieViewController.swift */,
-				415634B11B48DB12003C800D /* MovieTableViewCell.swift */,
-				415634B21B48DB12003C800D /* MovieTableViewCell.xib */,
-				41580E551B4FC9BF00118654 /* PhotoViewController.swift */,
-				416DA2821B4FDE55003747C8 /* InfoViewController.swift */,
-				416DA2841B4FE37B003747C8 /* InfoTableViewCell.swift */,
-				416DA2851B4FE37B003747C8 /* InfoTableViewCell.xib */,
-				413192CA1B523EDC00309F82 /* HomePageViewController.swift */,
+				AF380B701B62306700F77D76 /* Controllers */,
+				AF380B711B62308A00F77D76 /* Views */,
 				41B62E741B4673EC004A4EE1 /* Images.xcassets */,
 				41B62E761B4673EC004A4EE1 /* LaunchScreen.xib */,
 				41B62E6B1B4673EC004A4EE1 /* Supporting Files */,
@@ -214,6 +207,8 @@
 		41B62E931B469204004A4EE1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				41EDDC211B59196100912880 /* icon */,
+				AF380B691B6227C200F77D76 /* Defaults */,
 				41580E4C1B4F7E9400118654 /* kaikai3.jpg */,
 				41580E4A1B4F7E8200118654 /* hukuoka3.jpg */,
 				415634C51B48F7F7003C800D /* higasi2.png */,
@@ -251,6 +246,44 @@
 				CF8106EBEA270A682BC27D28 /* libPods-volleyball.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AF380B691B6227C200F77D76 /* Defaults */ = {
+			isa = PBXGroup;
+			children = (
+				AF380B6A1B6227C200F77D76 /* Default-568h@2x.png */,
+				AF380B6B1B6227C200F77D76 /* Default-667h@2x.png */,
+				AF380B6C1B6227C200F77D76 /* Default-736h@3x.png */,
+			);
+			path = Defaults;
+			sourceTree = "<group>";
+		};
+		AF380B701B62306700F77D76 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				41B62E6F1B4673EC004A4EE1 /* ViewController.swift */,
+				415634AF1B48CDD0003C800D /* RankTableViewController.swift */,
+				413192C21B520F4B00309F82 /* CategoryTableViewController.swift */,
+				413192C81B522E9100309F82 /* Category2TableViewController.swift */,
+				417CB3491B53FC5200CC00C9 /* SerchTableViewController.swift */,
+				417CB34B1B54001400CC00C9 /* FavoriteTableViewController.swift */,
+				41E298401B4BEF58003611E4 /* MovieViewController.swift */,
+				41580E551B4FC9BF00118654 /* PhotoViewController.swift */,
+				416DA2821B4FDE55003747C8 /* InfoViewController.swift */,
+				413192CA1B523EDC00309F82 /* HomePageViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		AF380B711B62308A00F77D76 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				415634B11B48DB12003C800D /* MovieTableViewCell.swift */,
+				415634B21B48DB12003C800D /* MovieTableViewCell.xib */,
+				416DA2841B4FE37B003747C8 /* InfoTableViewCell.swift */,
+				416DA2851B4FE37B003747C8 /* InfoTableViewCell.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,11 +372,13 @@
 				415634BD1B48F497003C800D /* haikei.jpg in Resources */,
 				41B62E731B4673EC004A4EE1 /* Main.storyboard in Resources */,
 				41EDDC2D1B59196200912880 /* Icon-Small@3x.png in Resources */,
+				AF380B6E1B6227C200F77D76 /* Default-667h@2x.png in Resources */,
 				41C922051B53732600E7103B /* good2.png in Resources */,
 				41580E4D1B4F7E9400118654 /* kaikai3.jpg in Resources */,
 				41C922071B53745900E7103B /* movie3.png in Resources */,
 				41EDDC2B1B59196200912880 /* Icon-60@3x.png in Resources */,
 				41580E541B4FC8A900118654 /* good.png in Resources */,
+				AF380B6D1B6227C200F77D76 /* Default-568h@2x.png in Resources */,
 				415634C11B48F497003C800D /* seijo.jpg in Resources */,
 				415634C01B48F497003C800D /* kaikai.jpg in Resources */,
 				41EDDC281B59196200912880 /* Icon-40@2x.png in Resources */,
@@ -360,6 +395,7 @@
 				41EDDC2C1B59196200912880 /* Icon-Small@2x.png in Resources */,
 				415634C61B48F7F7003C800D /* higasi2.png in Resources */,
 				41580E521B4FB56D00118654 /* movie2.png in Resources */,
+				AF380B6F1B6227C200F77D76 /* Default-736h@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +584,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = volleyball/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "volleyball/volleyball-Bridging-Header.h";
@@ -562,6 +599,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = volleyball/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "volleyball/volleyball-Bridging-Header.h";
