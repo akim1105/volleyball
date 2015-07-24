@@ -6,43 +6,53 @@
 	<dict>
 		<key>Pods-volleyball-Bolts.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-volleyball-Parse.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-volleyball-SVProgressHUD.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-volleyball-XCDYouTubeKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-volleyball.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>215B6850332182C4FD7D4864</key>
+		<key>0C4543863C94FAC8E9CE4444</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4F3F8588C6A2C32D95BEED3C</key>
+		<key>2243C5CB0D99D1C3B722DE32</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>95926A0C5CAB65A71275A51E</key>
+		<key>86092E0429685AD1C31F6CAA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ADF1E8B7D02C0ECACE7E51E9</key>
+		<key>E51E33A962A0706F9FFA3A3F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E7B722A87154977A512E667E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

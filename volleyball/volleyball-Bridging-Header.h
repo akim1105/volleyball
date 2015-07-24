@@ -5,3 +5,4 @@
 
 #import <SVProgressHUD.h>
 #import <Parse/Parse.h>
+#import "XCDYouTubeVideoPlayerViewController.h"

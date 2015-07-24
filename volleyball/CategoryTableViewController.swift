@@ -13,7 +13,8 @@ class CategoryTableViewController: UIViewController,UIWebViewDelegate, UITableVi
      @IBOutlet var table: UITableView!
     
     var categoryNameArray = [String]()
-    
+    var ageArray = [String]()
+    var schoolArray = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +23,8 @@ class CategoryTableViewController: UIViewController,UIWebViewDelegate, UITableVi
         table.delegate = self
         
         categoryNameArray = ["スーパープレー","アタック","レシーブ"]
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        ageArray = ["2010年", "2011年", "2012年", "2013年", "2014年", "2015年"]
+        schoolArray = ["八王子実践高校", "下北沢成徳高等学校", "和光高校", "星城高校"]
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,11 +33,31 @@ class CategoryTableViewController: UIViewController,UIWebViewDelegate, UITableVi
     }
 
     // MARK: - Table view data source
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // セクションの数
+        return 3;
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "プレー別"
+        }else if section == 1 {
+            return "年代別"
+        }else if section == 2 {
+            return "学校別"
+        }
+        return "タイトル"
+    }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return  categoryNameArray.count
+        if section == 0 {
+            return categoryNameArray.count
+        }else if section == 1 {
+            return ageArray.count
+        }else if section == 2 {
+            return schoolArray.count
+        }
+        return 1
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -51,8 +68,14 @@ class CategoryTableViewController: UIViewController,UIWebViewDelegate, UITableVi
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as!UITableViewCell
+        if indexPath.section == 0 {
+            cell.textLabel?.text = categoryNameArray[indexPath.row]
+        }else if indexPath.section == 1 {
+            cell.textLabel?.text = ageArray[indexPath.row]
+        }else if indexPath.section == 2 {
+            cell.textLabel?.text = schoolArray[indexPath.row]
+        }
         
-        cell.textLabel?.text = categoryNameArray[indexPath.row]
         return cell
     }
 

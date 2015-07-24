@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "95926A0C5CAB65A71275A51E"
+               BlueprintIdentifier = "E7B722A87154977A512E667E"
                BuildableName = "libPods-volleyball-SVProgressHUD.a"
                BlueprintName = "Pods-volleyball-SVProgressHUD"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -39,15 +39,6 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "95926A0C5CAB65A71275A51E"
-            BuildableName = "libPods-volleyball-SVProgressHUD.a"
-            BlueprintName = "Pods-volleyball-SVProgressHUD"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -57,15 +48,6 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "95926A0C5CAB65A71275A51E"
-            BuildableName = "libPods-volleyball-SVProgressHUD.a"
-            BlueprintName = "Pods-volleyball-SVProgressHUD"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

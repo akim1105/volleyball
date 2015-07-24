@@ -93,7 +93,7 @@ class RankTableViewController: UITableViewController, UIWebViewDelegate {
     
     // Get data from Parse
     func loadData(){
-        SVProgressHUD.showWithStatus("ロード中", maskType: SVProgressHUDMaskType.Black)
+        SVProgressHUD.showWithStatus("ロード中", maskType: SVProgressHUDMaskType.Clear)
         
         var query: PFQuery = PFQuery(className: "Movie")
         query.orderByAscending("createdAt")

@@ -49,6 +49,10 @@
 		AF380B6D1B6227C200F77D76 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF380B6A1B6227C200F77D76 /* Default-568h@2x.png */; };
 		AF380B6E1B6227C200F77D76 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF380B6B1B6227C200F77D76 /* Default-667h@2x.png */; };
 		AF380B6F1B6227C200F77D76 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF380B6C1B6227C200F77D76 /* Default-736h@3x.png */; };
+		AF380B771B6263D800F77D76 /* crown-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AF380B731B6263D800F77D76 /* crown-7.png */; };
+		AF380B781B6263D800F77D76 /* list-simple-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AF380B741B6263D800F77D76 /* list-simple-7.png */; };
+		AF380B791B6263D800F77D76 /* search-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AF380B751B6263D800F77D76 /* search-7.png */; };
+		AF380B7A1B6263D800F77D76 /* star-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AF380B761B6263D800F77D76 /* star-7.png */; };
 		C67D8F339D9A987F7D465318 /* libPods-volleyball.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8106EBEA270A682BC27D28 /* libPods-volleyball.a */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +116,10 @@
 		AF380B6A1B6227C200F77D76 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		AF380B6B1B6227C200F77D76 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		AF380B6C1B6227C200F77D76 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
+		AF380B731B6263D800F77D76 /* crown-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crown-7.png"; sourceTree = "<group>"; };
+		AF380B741B6263D800F77D76 /* list-simple-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-simple-7.png"; sourceTree = "<group>"; };
+		AF380B751B6263D800F77D76 /* search-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-7.png"; sourceTree = "<group>"; };
+		AF380B761B6263D800F77D76 /* star-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-7.png"; sourceTree = "<group>"; };
 		CF8106EBEA270A682BC27D28 /* libPods-volleyball.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-volleyball.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -207,6 +215,7 @@
 		41B62E931B469204004A4EE1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AF380B721B6263D800F77D76 /* tabbar */,
 				41EDDC211B59196100912880 /* icon */,
 				AF380B691B6227C200F77D76 /* Defaults */,
 				41580E4C1B4F7E9400118654 /* kaikai3.jpg */,
@@ -284,6 +293,17 @@
 				416DA2851B4FE37B003747C8 /* InfoTableViewCell.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		AF380B721B6263D800F77D76 /* tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				AF380B731B6263D800F77D76 /* crown-7.png */,
+				AF380B741B6263D800F77D76 /* list-simple-7.png */,
+				AF380B751B6263D800F77D76 /* search-7.png */,
+				AF380B761B6263D800F77D76 /* star-7.png */,
+			);
+			path = tabbar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,6 +388,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF380B771B6263D800F77D76 /* crown-7.png in Resources */,
 				41580E4B1B4F7E8200118654 /* hukuoka3.jpg in Resources */,
 				415634BD1B48F497003C800D /* haikei.jpg in Resources */,
 				41B62E731B4673EC004A4EE1 /* Main.storyboard in Resources */,
@@ -380,6 +401,7 @@
 				41580E541B4FC8A900118654 /* good.png in Resources */,
 				AF380B6D1B6227C200F77D76 /* Default-568h@2x.png in Resources */,
 				415634C11B48F497003C800D /* seijo.jpg in Resources */,
+				AF380B781B6263D800F77D76 /* list-simple-7.png in Resources */,
 				415634C01B48F497003C800D /* kaikai.jpg in Resources */,
 				41EDDC281B59196200912880 /* Icon-40@2x.png in Resources */,
 				415634BF1B48F497003C800D /* hukuoka.jpg in Resources */,
@@ -392,6 +414,8 @@
 				415634C21B48F497003C800D /* seitoku.jpg in Resources */,
 				41B62E751B4673EC004A4EE1 /* Images.xcassets in Resources */,
 				416DA2871B4FE37B003747C8 /* InfoTableViewCell.xib in Resources */,
+				AF380B791B6263D800F77D76 /* search-7.png in Resources */,
+				AF380B7A1B6263D800F77D76 /* star-7.png in Resources */,
 				41EDDC2C1B59196200912880 /* Icon-Small@2x.png in Resources */,
 				415634C61B48F7F7003C800D /* higasi2.png in Resources */,
 				41580E521B4FB56D00118654 /* movie2.png in Resources */,
