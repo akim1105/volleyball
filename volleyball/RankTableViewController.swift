@@ -86,6 +86,7 @@ class RankTableViewController: UITableViewController, UIWebViewDelegate {
         // MovieViewControllerを取得してmovieVCに入れておく
         let ud = NSUserDefaults.standardUserDefaults()
         ud.setObject(URLArray[indexPath.row], forKey: "URL")
+        ud.setObject(movieNameArray[indexPath.row], forKey: "movieName")
         ud.synchronize()
         
         self.performSegueWithIdentifier("toMovie", sender: nil)

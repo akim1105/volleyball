@@ -11,6 +11,10 @@ import UIKit
 class MovieViewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet var containerView: UIView!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var goodLabel: UILabel!
+    @IBOutlet var numberLabel: UILabel!
     
     var movieNameArray = [String]()
     var like = [Int]()
@@ -18,10 +22,15 @@ class MovieViewController: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = NSUserDefaults.standardUserDefaults().objectForKey("movieName") as? String
+        titleLabel.text = NSUserDefaults.standardUserDefaults().objectForKey("movieName") as? String
 
         let movieURL = NSUserDefaults.standardUserDefaults().objectForKey("URL") as! String
-        
-        var videoPlayerViewController = XCDYouTubeVideoPlayerViewController(videoIdentifier: "MAvwYkDBXXo")
+        NSLog("URL == %@", movieURL)
+        var array = movieURL.componentsSeparatedByString("=")
+
+        var videoPlayerViewController = XCDYouTubeVideoPlayerViewController(videoIdentifier: array[1])
         videoPlayerViewController.presentInView(containerView)
         videoPlayerViewController.moviePlayer.play()
     }
