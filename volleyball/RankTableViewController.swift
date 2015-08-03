@@ -17,6 +17,7 @@ class RankTableViewController: UITableViewController, UIWebViewDelegate {
     var time = [String]()
     var URLArray = [String]()
     var images = [UIImage]()
+    var objectIds = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +58,9 @@ class RankTableViewController: UITableViewController, UIWebViewDelegate {
         cell.likelabel?.text = String(good[indexPath.row])
         cell.looklabel?.text = String(count[indexPath.row])
         cell.timelabel?.text = String(time[indexPath.row])
-        cell.imageView?.image = images[indexPath.row]
+        //cell.imageView?.image = images[indexPath.row]
+        cell.movieimageView.image = images[indexPath.row]
+        cell.rankLabel.text = String(format: "%d", indexPath.row + 1)
         
         // セルの境界線
         if (cell.respondsToSelector(Selector("setSeparatorInset:"))) {
@@ -87,6 +90,7 @@ class RankTableViewController: UITableViewController, UIWebViewDelegate {
         let ud = NSUserDefaults.standardUserDefaults()
         ud.setObject(URLArray[indexPath.row], forKey: "URL")
         ud.setObject(movieNameArray[indexPath.row], forKey: "movieName")
+        ud.setObject(objectIds[indexPath.row], forKey: "objectId")
         ud.synchronize()
         
         self.performSegueWithIdentifier("toMovie", sender: nil)
@@ -110,6 +114,7 @@ class RankTableViewController: UITableViewController, UIWebViewDelegate {
                     self.count.append(object.valueForKey("count") as! Int)
                     self.time.append(object.valueForKey("time") as! String)
                     self.URLArray.append(object.valueForKey("URL") as! String)
+                    self.objectIds.append(object.valueForKey("objectId") as! String)
                     
                     if object["Image"] != nil {
                         let userImageFile = object.valueForKey("Image") as! PFFile
@@ -148,7 +153,9 @@ class RankTableViewController: UITableViewController, UIWebViewDelegate {
         }
     }
     
+    /*
     @IBAction func backToTop() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+     */
 }

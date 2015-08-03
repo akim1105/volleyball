@@ -47,6 +47,14 @@ class InfoViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // TableViewのセルがタップされた時の処理
         self.performSegueWithIdentifier("toHP", sender: nil)
+        
+        // セルの選択状態の解除
+        table.deselectRowAtIndexPath(indexPath, animated: true)
     }
-
 }
+
+
+
+
+
+
