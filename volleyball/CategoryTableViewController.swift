@@ -62,8 +62,9 @@ class CategoryTableViewController: UIViewController,UIWebViewDelegate, UITableVi
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // TableViewのセルがタップされた時の処理
-        
         self.performSegueWithIdentifier("toM", sender: nil)
+        
+        table.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
