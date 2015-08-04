@@ -143,7 +143,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="みんなの写真" id="7ws-qW-VPz"/>
+                    <navigationItem key="navigationItem" title="みんなの写真" id="7ws-qW-VPz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="MB6-E3-f24"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="wZ6-cm-vmk" id="Sds-ep-6ln"/>
                     </connections>
@@ -209,38 +211,38 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PmR-x0-PGw" id="Leb-zb-eEm">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Labelaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Rr-bO-n5q">
-                                                    <rect key="frame" x="142" y="2" width="165" height="37"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Labelaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Rr-bO-n5q">
+                                                    <rect key="frame" x="135" y="2" width="165" height="37"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="223-r2-zmf">
-                                                    <rect key="frame" x="279" y="37" width="40" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="223-r2-zmf">
+                                                    <rect key="frame" x="272" y="37" width="40" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.185495205" green="0.185495205" blue="0.185495205" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBJ-Vi-DeM">
-                                                    <rect key="frame" x="190" y="57" width="45" height="13"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBJ-Vi-DeM">
+                                                    <rect key="frame" x="183" y="57" width="96" height="13"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.185495205" green="0.185495205" blue="0.185495205" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="good2.png" translatesAutoresizingMaskIntoConstraints="NO" id="o3o-zs-yx8">
-                                                    <rect key="frame" x="258" y="40" width="17" height="15"/>
+                                                    <rect key="frame" x="251" y="40" width="17" height="15"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="視聴回数" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rED-cO-G7W">
-                                                    <rect key="frame" x="142" y="56" width="50" height="15"/>
+                                                    <rect key="frame" x="135" y="56" width="50" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.185495205" green="0.185495205" blue="0.185495205" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="movie3.png" translatesAutoresizingMaskIntoConstraints="NO" id="oMk-gt-zUz">
-                                                    <rect key="frame" x="143" y="42" width="13" height="12"/>
+                                                    <rect key="frame" x="136" y="41" width="13" height="12"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="07:45" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZJ-7g-cZX">
-                                                    <rect key="frame" x="164" y="37" width="30" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="07:45" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZJ-7g-cZX">
+                                                    <rect key="frame" x="153" y="37" width="43" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.185495205" green="0.185495205" blue="0.185495205" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -262,8 +264,8 @@
                                 <color key="textColor" red="0.185495205" green="0.185495205" blue="0.185495205" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="99999999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEA-vT-75g">
-                                <rect key="frame" x="63" y="312" width="62" height="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="99999999" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEA-vT-75g">
+                                <rect key="frame" x="65" y="312" width="82" height="14"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="0.185495205" green="0.185495205" blue="0.185495205" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -313,7 +315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z8m-Ig-wQi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3065" y="-1428"/>
+            <point key="canvasLocation" x="3865" y="-949"/>
         </scene>
         <!--カテゴリ-->
         <scene sceneID="DSX-h0-gob">
@@ -377,45 +379,17 @@
                     <navigationItem key="navigationItem" id="huf-TI-MdU"/>
                     <connections>
                         <outlet property="table" destination="i0U-L9-eTz" id="yBw-7w-e84"/>
-                        <segue destination="Ee9-ie-Mml" kind="push" identifier="toMovie" id="bBf-gb-3Yu"/>
+                        <segue destination="3MP-XL-AZg" kind="push" identifier="toMovie" id="VPh-Qv-RCB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnm-gH-neI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3065" y="-746"/>
         </scene>
-        <!--Movie View Controller-->
-        <scene sceneID="dpE-dc-J1l">
-            <objects>
-                <viewController id="Ee9-ie-Mml" customClass="MovieViewController" customModule="volleyball" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ngm-bs-Y45"/>
-                        <viewControllerLayoutGuide type="bottom" id="6Mk-fF-RHO"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dLD-fN-BcA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yfr-IY-dqK">
-                                <rect key="frame" x="0.0" y="64" width="320" height="180"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="3cN-go-gTi"/>
-                    <connections>
-                        <outlet property="webView" destination="Yfr-IY-dqK" id="NqE-gt-AKp"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zxs-of-rKS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3479" y="-746"/>
-        </scene>
         <!--お気に入り-->
         <scene sceneID="oZD-cI-fTe">
             <objects>
-                <tableViewController id="iGb-hc-G9d" customClass="SerchTableViewController" customModule="volleyball" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="iGb-hc-G9d" customClass="FavoriteTableViewController" customModule="volleyball" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="82" sectionHeaderHeight="22" sectionFooterHeight="22" id="fK9-VN-o0v">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -436,40 +410,12 @@
                     <navigationItem key="navigationItem" title="お気に入り" id="EqS-yZ-ajC"/>
                     <connections>
                         <outlet property="table" destination="fK9-VN-o0v" id="NeC-yG-yd3"/>
-                        <segue destination="ONO-Vb-tFh" kind="push" identifier="toMovie" id="S3i-7O-aEM"/>
+                        <segue destination="3MP-XL-AZg" kind="push" identifier="toMovie" id="Ylw-TQ-tCD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LTq-25-pc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2648" y="-41"/>
-        </scene>
-        <!--Movie View Controller-->
-        <scene sceneID="GrO-qi-nx8">
-            <objects>
-                <viewController id="ONO-Vb-tFh" customClass="MovieViewController" customModule="volleyball" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DL7-9J-L2l"/>
-                        <viewControllerLayoutGuide type="bottom" id="V1q-MA-Zih"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gOp-fV-iC9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tMa-AQ-gad">
-                                <rect key="frame" x="0.0" y="64" width="320" height="180"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="EbR-sm-DWI"/>
-                    <connections>
-                        <outlet property="webView" destination="tMa-AQ-gad" id="nWe-SI-rva"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ff2-2A-EEd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3065" y="-41"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="WVP-J7-UO8">
@@ -605,4 +551,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ylw-TQ-tCD"/>
+    </inferredMetricsTieBreakers>
 </document>

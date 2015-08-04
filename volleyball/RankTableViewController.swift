@@ -54,9 +54,14 @@ class RankTableViewController: UITableViewController, UIWebViewDelegate {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! MovieTableViewCell
         
+        var formatter = NSNumberFormatter()
+        formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        formatter.groupingSeparator = ","
+        formatter.groupingSize = 3
+        
         cell.label?.text = movieNameArray[indexPath.row]
-        cell.likelabel?.text = String(good[indexPath.row])
-        cell.looklabel?.text = String(count[indexPath.row])
+        cell.likelabel?.text = formatter.stringFromNumber(good[indexPath.row])
+        cell.looklabel?.text = formatter.stringFromNumber(count[indexPath.row])
         cell.timelabel?.text = String(time[indexPath.row])
         //cell.imageView?.image = images[indexPath.row]
         cell.movieimageView.image = images[indexPath.row]
@@ -86,11 +91,13 @@ class RankTableViewController: UITableViewController, UIWebViewDelegate {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // TableViewのセルがタップされた時の処理
-        // MovieViewControllerを取得してmovieVCに入れておく
         let ud = NSUserDefaults.standardUserDefaults()
         ud.setObject(URLArray[indexPath.row], forKey: "URL")
         ud.setObject(movieNameArray[indexPath.row], forKey: "movieName")
         ud.setObject(objectIds[indexPath.row], forKey: "objectId")
+        ud.setObject(count[indexPath.row], forKey: "count")
+        ud.setObject(good[indexPath.row], forKey: "good")
+        ud.setObject(time[indexPath.row], forKey: "time")
         ud.synchronize()
         
         self.performSegueWithIdentifier("toMovie", sender: nil)

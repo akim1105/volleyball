@@ -12,6 +12,7 @@ class InfoViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBOutlet var table: UITableView!
     
+    var number: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()

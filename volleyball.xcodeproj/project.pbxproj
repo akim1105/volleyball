@@ -29,7 +29,6 @@
 		416DA2831B4FDE55003747C8 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416DA2821B4FDE55003747C8 /* InfoViewController.swift */; };
 		416DA2861B4FE37B003747C8 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416DA2841B4FE37B003747C8 /* InfoTableViewCell.swift */; };
 		416DA2871B4FE37B003747C8 /* InfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 416DA2851B4FE37B003747C8 /* InfoTableViewCell.xib */; };
-		417CB34A1B53FC5200CC00C9 /* SerchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417CB3491B53FC5200CC00C9 /* SerchTableViewController.swift */; };
 		417CB34C1B54001400CC00C9 /* FavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417CB34B1B54001400CC00C9 /* FavoriteTableViewController.swift */; };
 		41B62E6E1B4673EC004A4EE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B62E6D1B4673EC004A4EE1 /* AppDelegate.swift */; };
 		41B62E701B4673EC004A4EE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B62E6F1B4673EC004A4EE1 /* ViewController.swift */; };
@@ -58,6 +57,7 @@
 		AF8C99C41B6F3A160054D6D4 /* rss-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AF8C99C21B6F3A160054D6D4 /* rss-7.png */; };
 		AF8C99C71B6F443B0054D6D4 /* LOGOG_EG.TTF in Resources */ = {isa = PBXBuildFile; fileRef = AF8C99C61B6F443B0054D6D4 /* LOGOG_EG.TTF */; };
 		AF8C99C91B6F4BE60054D6D4 /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF8C99C81B6F4BE60054D6D4 /* button@2x.png */; };
+		AFE9233D1B6FEBA70003A2B4 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE9233C1B6FEBA70003A2B4 /* PushNotificationManager.swift */; };
 		C67D8F339D9A987F7D465318 /* libPods-volleyball.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8106EBEA270A682BC27D28 /* libPods-volleyball.a */; };
 /* End PBXBuildFile section */
 
@@ -95,7 +95,6 @@
 		416DA2821B4FDE55003747C8 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		416DA2841B4FE37B003747C8 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		416DA2851B4FE37B003747C8 /* InfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoTableViewCell.xib; sourceTree = "<group>"; };
-		417CB3491B53FC5200CC00C9 /* SerchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerchTableViewController.swift; sourceTree = "<group>"; };
 		417CB34B1B54001400CC00C9 /* FavoriteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewController.swift; sourceTree = "<group>"; };
 		41B62E681B4673EC004A4EE1 /* volleyball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = volleyball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41B62E6C1B4673EC004A4EE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -130,6 +129,7 @@
 		AF8C99C21B6F3A160054D6D4 /* rss-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rss-7.png"; sourceTree = "<group>"; };
 		AF8C99C61B6F443B0054D6D4 /* LOGOG_EG.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = LOGOG_EG.TTF; sourceTree = "<group>"; };
 		AF8C99C81B6F4BE60054D6D4 /* button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button@2x.png"; sourceTree = "<group>"; };
+		AFE9233C1B6FEBA70003A2B4 /* PushNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		CF8106EBEA270A682BC27D28 /* libPods-volleyball.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-volleyball.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -184,14 +184,14 @@
 		41B62E6A1B4673EC004A4EE1 /* volleyball */ = {
 			isa = PBXGroup;
 			children = (
-				AF8C99C51B6F44270054D6D4 /* Fonts */,
-				41B62E931B469204004A4EE1 /* Images */,
+				AFE9233B1B6FEB850003A2B4 /* Utilities */,
 				41B62E6D1B4673EC004A4EE1 /* AppDelegate.swift */,
 				41B62E711B4673EC004A4EE1 /* Main.storyboard */,
 				AF380B701B62306700F77D76 /* Controllers */,
 				AF380B711B62308A00F77D76 /* Views */,
 				41B62E741B4673EC004A4EE1 /* Images.xcassets */,
 				41B62E761B4673EC004A4EE1 /* LaunchScreen.xib */,
+				AFE9233A1B6FEB690003A2B4 /* Resources */,
 				41B62E6B1B4673EC004A4EE1 /* Supporting Files */,
 				41E75D901B552881006C83E0 /* volleyball-Bridging-Header.h */,
 			);
@@ -287,7 +287,6 @@
 				415634AF1B48CDD0003C800D /* RankTableViewController.swift */,
 				413192C21B520F4B00309F82 /* CategoryTableViewController.swift */,
 				413192C81B522E9100309F82 /* Category2TableViewController.swift */,
-				417CB3491B53FC5200CC00C9 /* SerchTableViewController.swift */,
 				417CB34B1B54001400CC00C9 /* FavoriteTableViewController.swift */,
 				41E298401B4BEF58003611E4 /* MovieViewController.swift */,
 				41580E551B4FC9BF00118654 /* PhotoViewController.swift */,
@@ -327,6 +326,23 @@
 				AF8C99C61B6F443B0054D6D4 /* LOGOG_EG.TTF */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		AFE9233A1B6FEB690003A2B4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				41B62E931B469204004A4EE1 /* Images */,
+				AF8C99C51B6F44270054D6D4 /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		AFE9233B1B6FEB850003A2B4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				AFE9233C1B6FEBA70003A2B4 /* PushNotificationManager.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -500,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFE9233D1B6FEBA70003A2B4 /* PushNotificationManager.swift in Sources */,
 				417CB34C1B54001400CC00C9 /* FavoriteTableViewController.swift in Sources */,
 				41B62E701B4673EC004A4EE1 /* ViewController.swift in Sources */,
 				416DA2861B4FE37B003747C8 /* InfoTableViewCell.swift in Sources */,
@@ -510,7 +527,6 @@
 				413192C91B522E9100309F82 /* Category2TableViewController.swift in Sources */,
 				413192CB1B523EDC00309F82 /* HomePageViewController.swift in Sources */,
 				415634B31B48DB12003C800D /* MovieTableViewCell.swift in Sources */,
-				417CB34A1B53FC5200CC00C9 /* SerchTableViewController.swift in Sources */,
 				415634B01B48CDD0003C800D /* RankTableViewController.swift in Sources */,
 				41580E561B4FC9BF00118654 /* PhotoViewController.swift in Sources */,
 			);
