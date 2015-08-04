@@ -105,8 +105,6 @@ class Category2TableViewController: UITableViewController, UIWebViewDelegate  {
             // TODO: get image
         }
 
-        
-        
         cell.label?.text = movieNameArray[indexPath.row]
         cell.likelabel?.text = String(good[indexPath.row])
         cell.looklabel?.text = String(count[indexPath.row])

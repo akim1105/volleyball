@@ -16,7 +16,7 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet var looklabel: UILabel!
     @IBOutlet var timelabel: UILabel!
     @IBOutlet var rankLabel: UILabel!
-
+    @IBOutlet var blackView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

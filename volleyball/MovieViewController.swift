@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieViewController: UIViewController, UIWebViewDelegate, UITableViewDataSource {
+class MovieViewController: UIViewController, UIWebViewDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet var containerView: UIView!
     @IBOutlet var titleLabel: UILabel!
@@ -24,33 +24,40 @@ class MovieViewController: UIViewController, UIWebViewDelegate, UITableViewDataS
     var time = [String]()
     var URLArray = [String]()
     var images = [UIImage]()
+    var objectIds = [String]()
+    var movieID: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         movieList.dataSource = self
+        movieList.delegate = self
         
         self.navigationItem.title = NSUserDefaults.standardUserDefaults().objectForKey("movieName") as? String
         titleLabel.text = NSUserDefaults.standardUserDefaults().objectForKey("movieName") as? String
-
-        let movieURL = NSUserDefaults.standardUserDefaults().objectForKey("URL") as! String
-        NSLog("URL == %@", movieURL)
-        var array = movieURL.componentsSeparatedByString("=")
-
-        var videoPlayerViewController = XCDYouTubeVideoPlayerViewController(videoIdentifier: array[1])
-        videoPlayerViewController.presentInView(containerView)
-        videoPlayerViewController.moviePlayer.play()
+        var formatter = NSNumberFormatter()
+        formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        formatter.groupingSeparator = ","
+        formatter.groupingSize = 3
         
+        timeLabel.text = NSUserDefaults.standardUserDefaults().objectForKey("time") as? String
+        goodLabel.text = formatter.stringFromNumber(NSUserDefaults.standardUserDefaults().objectForKey("good") as! Int)
+        numberLabel.text = formatter.stringFromNumber(NSUserDefaults.standardUserDefaults().objectForKey("count") as! Int)
+        
+        // play
+        self.playVideo(NSUserDefaults.standardUserDefaults().objectForKey("URL") as! String)
+        
+        favoriteButton.setTitle("お気に入り", forState: UIControlState.Normal)
         self.loadData()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func showGuruguru(){
-       SVProgressHUD.show()
+        SVProgressHUD.show()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,14 +68,37 @@ class MovieViewController: UIViewController, UIWebViewDelegate, UITableViewDataS
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // セルの内容
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
-        
-        // セルに配列に入っている画像に合わせて表示
         cell.imageView!.image = images[indexPath.row]
+        
+        var titleLabel = cell.viewWithTag(1) as! UILabel
+        var timeLabel = cell.viewWithTag(2) as! UILabel
+        var goodLabel = cell.viewWithTag(3) as! UILabel
+        var watchLabel = cell.viewWithTag(4) as! UILabel
+        
+        var formatter = NSNumberFormatter()
+        formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        formatter.groupingSeparator = ","
+        formatter.groupingSize = 3
+        
+        titleLabel.text = self.movieNameArray[indexPath.row]
+        timeLabel.text = self.time[indexPath.row]
+        goodLabel.text = String(self.good[indexPath.row])
+        watchLabel.text = formatter.stringFromNumber(count[indexPath.row])
         
         return cell
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // セルが選択されたとき
+        var ud = NSUserDefaults.standardUserDefaults()
+        ud.setObject(URLArray[indexPath.row], forKey: "URL")
+        // self.playVideo(URLArray[indexPath.row])
+        ud.synchronize()
+        self.viewDidLoad()
+    }
+    
     // Get data from Parse
-    func loadData(){
+    func loadData() {
         SVProgressHUD.showWithStatus("ロード中", maskType: SVProgressHUDMaskType.Clear)
         
         var query: PFQuery = PFQuery(className: "Movie")
@@ -79,13 +109,26 @@ class MovieViewController: UIViewController, UIWebViewDelegate, UITableViewDataS
                 self.showErrorAlert(error!)
             }else {
                 for object in objects! {
+                    // 自分がお気に入りに登録した動画だけ抽出
+                    if NSUserDefaults.standardUserDefaults().objectForKey("URL") as! String == (object.valueForKey("URL") as! String) {
+                        if object.valueForKey("favorite") != nil {
+                            var userArray = object.valueForKey("favorite") as! NSArray
+                            for favUser in userArray {
+                                if favUser as! String == PFInstallation.currentInstallation().objectId! {
+                                    // お気に入りに登録していた場合
+                                    self.favoriteButton.setTitle("お気に入り解除", forState: UIControlState.Normal)
+                                }
+                            }
+                        }
+                    }
+                    
                     NSLog("object == %@", object as! PFObject)
                     self.movieNameArray.append(object.valueForKey("title") as! String)
                     self.good.append(object.valueForKey("good") as! Int)
                     self.count.append(object.valueForKey("count") as! Int)
                     self.time.append(object.valueForKey("time") as! String)
                     self.URLArray.append(object.valueForKey("URL") as! String)
-                    
+                    self.objectIds.append(object.valueForKey("objectId") as! String)
                     if object["Image"] != nil {
                         let userImageFile = object.valueForKey("Image") as! PFFile
                         self.images.append(UIImage(data:userImageFile.getData()!)!)
@@ -140,17 +183,22 @@ class MovieViewController: UIViewController, UIWebViewDelegate, UITableViewDataS
             for object in (objects as! [PFObject]) {
                 if(error == nil){
                     if object.objectId == NSUserDefaults.standardUserDefaults().objectForKey("objectId") as? String {
-                    
-                        //object.addUniqueObject(object.objectId!, forKey: "favorite")
-                        object.addUniqueObject(PFInstallation.currentInstallation().objectId!, forKey: "favorite")
-                        object.saveInBackgroundWithBlock { (succeeded, error) -> Void in
-                            if succeeded == true {
-                                SVProgressHUD.showSuccessWithStatus("お気に入りに登録しました")
+                        
+                        if PFInstallation.currentInstallation().objectId != nil {
+                            //object.addUniqueObject(object.objectId!, forKey: "favorite")
+                            object.addUniqueObject(PFInstallation.currentInstallation().objectId!, forKey: "favorite")
+                            object.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+                                if succeeded == true {
+                                    SVProgressHUD.showSuccessWithStatus("お気に入りに登録しました")
+                                }
                             }
+                        }else {
+                            NSLog("何かしらの理由でインストールIDが取得できませんでした")
+                            SVProgressHUD.showErrorWithStatus("エラー")
                         }
                     }
                 }else{
-                    NSLog("errorあるよ")
+                    SVProgressHUD.showErrorWithStatus(error?.description)
                 }
             }
         }
@@ -163,20 +211,31 @@ class MovieViewController: UIViewController, UIWebViewDelegate, UITableViewDataS
             for object in (objects as! [PFObject]) {
                 if(error == nil){
                     if object.objectId == NSUserDefaults.standardUserDefaults().objectForKey("objectId") as? String {
-                        
-                        // object.removeObject(object.objectId!, forKey: "favorite")
-                        object.removeObject(PFInstallation.currentInstallation().objectId!, forKey: "favorite")
-                        object.saveInBackgroundWithBlock { (succeeded, error) -> Void in
-                            if succeeded == true {
-                                SVProgressHUD.showSuccessWithStatus("お気に入りを解除しました")
+                        if PFInstallation.currentInstallation().objectId != nil {
+                            // object.removeObject(object.objectId!, forKey: "favorite")
+                            object.removeObject(PFInstallation.currentInstallation().objectId!, forKey: "favorite")
+                            object.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+                                if succeeded == true {
+                                    SVProgressHUD.showSuccessWithStatus("お気に入りを解除しました")
+                                }
                             }
+                        }else {
+                            NSLog("何かしらの理由でインストールIDが取得できませんでした")
+                            SVProgressHUD.showErrorWithStatus("エラー")
                         }
                     }
                 }else{
-                    NSLog("errorあるよ")
+                    SVProgressHUD.showErrorWithStatus(error?.description)
                 }
             }
         }
+    }
+    
+    func playVideo(movieURL: String) {
+        var array = movieURL.componentsSeparatedByString("=")
+        var videoPlayerViewController = XCDYouTubeVideoPlayerViewController(videoIdentifier: array[1])
+        videoPlayerViewController.presentInView(containerView)
+        videoPlayerViewController.moviePlayer.play()
     }
 }
 

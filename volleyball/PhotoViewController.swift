@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
+class PhotoViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     
     @IBOutlet var collectionView: UICollectionView!
@@ -42,4 +42,11 @@ class PhotoViewController: UIViewController,UICollectionViewDataSource,UICollect
         imageView.image = photoArray[indexPath.row]
         return cell
     }
+    
+    // 画面遷移する前に自動的に呼ばれるメソッド
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var infoViewController = segue.destinationViewController as! InfoViewController
+        infoViewController.number = 100
+    }
+
 }

@@ -28,8 +28,8 @@
                         <color key="textColor" red="0.185495205" green="0.185495205" blue="0.185495205" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVb-dd-6uN">
-                        <rect key="frame" x="185" y="63" width="45" height="13"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVb-dd-6uN">
+                        <rect key="frame" x="185" y="63" width="121" height="13"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.185495205" green="0.185495205" blue="0.185495205" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -46,8 +46,8 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="movie3.png" translatesAutoresizingMaskIntoConstraints="NO" id="2Xh-jI-vib">
                         <rect key="frame" x="138" y="48" width="15" height="12"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="07:45" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SkL-X4-1TD">
-                        <rect key="frame" x="159" y="43" width="30" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="07:45" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SkL-X4-1TD">
+                        <rect key="frame" x="159" y="43" width="54" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.185495205" green="0.185495205" blue="0.185495205" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -71,6 +71,7 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="blackView" destination="3cw-fk-fdq" id="LfI-Zo-tCr"/>
                 <outlet property="label" destination="Kav-MV-85o" id="jFx-Hv-qjy"/>
                 <outlet property="likelabel" destination="8va-UT-LY3" id="FAK-Jc-Hfk"/>
                 <outlet property="looklabel" destination="NVb-dd-6uN" id="okh-0A-ZcP"/>
