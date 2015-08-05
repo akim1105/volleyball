@@ -8,23 +8,18 @@
 
 import UIKit
 
-class PhotoViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    
+class PhotoViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var collectionView: UICollectionView!
     
     var photoArray = [UIImage]()
-    
+    var photoImage: UIImage!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.dataSource = self
-        photoArray.append(UIImage(named: "kaikai3.jpg")!)
-        photoArray.append(UIImage(named: "hukuoka3.jpg")!)
-        photoArray.append(UIImage(named: "higasi2.png")!)
-        photoArray.append(UIImage(named: "kaikai.jpg")!)
-        photoArray.append(UIImage(named: "haikei.jpg")!)
+        self.loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,8 +40,68 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     // 画面遷移する前に自動的に呼ばれるメソッド
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var infoViewController = segue.destinationViewController as! InfoViewController
-        infoViewController.number = 100
+        let addViewController = segue.destinationViewController as! AddViewController
+        addViewController.photoImage = self.photoImage
     }
-
+    
+    @IBAction func selectImage() {
+        var imagePicker: UIImagePickerController = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(imagePicker, animated:true, completion:nil)
+    }
+    
+    
+    // MARK: UIImagePickerController Delegate
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        photoImage = image
+        picker.dismissViewControllerAnimated(true, completion: nil);
+        self.performSegueWithIdentifier("toEdit", sender: nil)
+    }
+    
+    func loadData(){
+        SVProgressHUD.showWithStatus("ロード中", maskType: SVProgressHUDMaskType.Black)
+        var usersData: PFQuery = PFQuery(className: "Photo")
+        usersData.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]?, error: NSError?) -> Void in
+            if error != nil {
+                self.showErrorAlert(error!)
+            }else {
+                for object in objects! {
+                    if object["image"] != nil {
+                        let userImageFile = object.valueForKey("image") as! PFFile
+                        self.photoArray.append(UIImage(data:userImageFile.getData()!)!)
+                    }
+                }
+                self.collectionView.reloadData()
+                SVProgressHUD.dismiss()
+            }
+        }
+    }
+    
+    func showErrorAlert(error: NSError) {
+        var errorMessage = error.description
+        
+        if error.code == 209 {
+            NSLog("session token == %@", PFUser.currentUser()!.sessionToken!)
+            errorMessage = "セッショントークンが切れました。ログアウトします。"
+            PFUser.currentUser()?.delete()
+            SVProgressHUD.showSuccessWithStatus("ログアウトしました", maskType: SVProgressHUDMaskType.Black)
+            self.dismissViewControllerAnimated(true, completion: nil)
+            PFUser.enableRevocableSessionInBackgroundWithBlock { (error: NSError?) -> Void in
+                println("Session token deprecated")
+            }
+        }
+        var alertController = UIAlertController(title: "通信エラー", message: errorMessage, preferredStyle: .Alert)
+        let okAction = UIAlertAction(title: "OK", style: .Cancel) {
+            action in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        alertController.addAction(okAction)
+        presentViewController(alertController, animated: true, completion: nil)
+        
+        if SVProgressHUD.isVisible() {
+            SVProgressHUD.dismiss()
+        }
+    }
 }

@@ -127,18 +127,20 @@ class FavoriteTableViewController: UITableViewController, UIWebViewDelegate, UIA
                 for object in objects! {
                     // 自分がお気に入りに登録した動画だけ抽出
                     if object.valueForKey("favorite") != nil {
-                        var userArray = object.valueForKey("favorite") as! NSArray
-                        for favUser in userArray {
-                            if favUser as! String == PFInstallation.currentInstallation().objectId! {
-                                self.movieNameArray.append(object.valueForKey("title") as! String)
-                                self.good.append(object.valueForKey("good") as! Int)
-                                self.count.append(object.valueForKey("count") as! Int)
-                                self.time.append(object.valueForKey("time") as! String)
-                                self.URLArray.append(object.valueForKey("URL") as! String)
-                                self.objectIds.append(object.valueForKey("objectId") as! String)
-                                if object["Image"] != nil {
-                                    let userImageFile = object.valueForKey("Image") as! PFFile
-                                    self.images.append(UIImage(data:userImageFile.getData()!)!)
+                        if PFInstallation.currentInstallation().objectId != nil {
+                            var userArray = object.valueForKey("favorite") as! NSArray
+                            for favUser in userArray {
+                                if favUser as! String == PFInstallation.currentInstallation().objectId! {
+                                    self.movieNameArray.append(object.valueForKey("title") as! String)
+                                    self.good.append(object.valueForKey("good") as! Int)
+                                    self.count.append(object.valueForKey("count") as! Int)
+                                    self.time.append(object.valueForKey("time") as! String)
+                                    self.URLArray.append(object.valueForKey("URL") as! String)
+                                    self.objectIds.append(object.valueForKey("objectId") as! String)
+                                    if object["Image"] != nil {
+                                        let userImageFile = object.valueForKey("Image") as! PFFile
+                                        self.images.append(UIImage(data:userImageFile.getData()!)!)
+                                    }
                                 }
                             }
                         }

@@ -58,6 +58,7 @@
 		AF8C99C71B6F443B0054D6D4 /* LOGOG_EG.TTF in Resources */ = {isa = PBXBuildFile; fileRef = AF8C99C61B6F443B0054D6D4 /* LOGOG_EG.TTF */; };
 		AF8C99C91B6F4BE60054D6D4 /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF8C99C81B6F4BE60054D6D4 /* button@2x.png */; };
 		AFE9233D1B6FEBA70003A2B4 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE9233C1B6FEBA70003A2B4 /* PushNotificationManager.swift */; };
+		AFE975521B70D2A80094F1A6 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE975511B70D2A80094F1A6 /* AddViewController.swift */; };
 		C67D8F339D9A987F7D465318 /* libPods-volleyball.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8106EBEA270A682BC27D28 /* libPods-volleyball.a */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +131,7 @@
 		AF8C99C61B6F443B0054D6D4 /* LOGOG_EG.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = LOGOG_EG.TTF; sourceTree = "<group>"; };
 		AF8C99C81B6F4BE60054D6D4 /* button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button@2x.png"; sourceTree = "<group>"; };
 		AFE9233C1B6FEBA70003A2B4 /* PushNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
+		AFE975511B70D2A80094F1A6 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		CF8106EBEA270A682BC27D28 /* libPods-volleyball.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-volleyball.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -292,6 +294,7 @@
 				41580E551B4FC9BF00118654 /* PhotoViewController.swift */,
 				416DA2821B4FDE55003747C8 /* InfoViewController.swift */,
 				413192CA1B523EDC00309F82 /* HomePageViewController.swift */,
+				AFE975511B70D2A80094F1A6 /* AddViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 			files = (
 				AFE9233D1B6FEBA70003A2B4 /* PushNotificationManager.swift in Sources */,
 				417CB34C1B54001400CC00C9 /* FavoriteTableViewController.swift in Sources */,
+				AFE975521B70D2A80094F1A6 /* AddViewController.swift in Sources */,
 				41B62E701B4673EC004A4EE1 /* ViewController.swift in Sources */,
 				416DA2861B4FE37B003747C8 /* InfoTableViewCell.swift in Sources */,
 				41E298411B4BEF58003611E4 /* MovieViewController.swift in Sources */,

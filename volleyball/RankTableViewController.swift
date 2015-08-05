@@ -114,6 +114,7 @@ class RankTableViewController: UITableViewController, UIWebViewDelegate {
             if error != nil {
                 self.showErrorAlert(error!)
             }else {
+                var number: Int = 0
                 for object in objects! {
                     NSLog("object == %@", object as! PFObject)
                     self.movieNameArray.append(object.valueForKey("title") as! String)
@@ -127,9 +128,13 @@ class RankTableViewController: UITableViewController, UIWebViewDelegate {
                         let userImageFile = object.valueForKey("Image") as! PFFile
                         self.images.append(UIImage(data:userImageFile.getData()!)!)
                     }
+                    number = number + 1
+                    if number > 19 {
+                        self.table.reloadData()
+                        SVProgressHUD.dismiss()
+                        return
+                    }
                 }
-                self.table.reloadData()
-                SVProgressHUD.dismiss()
             }
         }
     }
@@ -162,7 +167,7 @@ class RankTableViewController: UITableViewController, UIWebViewDelegate {
     
     /*
     @IBAction func backToTop() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    self.dismissViewControllerAnimated(true, completion: nil)
     }
-     */
+    */
 }
