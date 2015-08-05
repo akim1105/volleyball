@@ -10,28 +10,28 @@ import UIKit
 
 class CategoryTableViewController: UIViewController,UIWebViewDelegate, UITableViewDataSource, UITableViewDelegate {
     
-     @IBOutlet var table: UITableView!
+    @IBOutlet var table: UITableView!
     
-    var categoryNameArray = [String]()
+    var playNameArray = [String]()
     var ageArray = [String]()
-    var schoolArray = [String]()
-
+    var typeArray = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         table.dataSource = self
         table.delegate = self
         
-        categoryNameArray = ["スーパープレー","アタック","レシーブ"]
-        ageArray = ["2010年", "2011年", "2012年", "2013年", "2014年", "2015年"]
-        schoolArray = ["八王子実践高校", "下北沢成徳高等学校", "和光高校", "星城高校"]
+        playNameArray = ["スーパープレー","スパイク","サーブ","レシーブ","トス"]
+        ageArray = ["小学生", "中学生", "高校生", "大学生", "プロ"]
+        typeArray = ["練習", "試合", "密着"]
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // セクションの数
@@ -40,44 +40,43 @@ class CategoryTableViewController: UIViewController,UIWebViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "プレー別"
+            return "プレー"
         }else if section == 1 {
-            return "年代別"
+            return "年代"
         }else if section == 2 {
-            return "学校別"
+            return "じっくり見たい人向け"
         }
         return "タイトル"
     }
-
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return categoryNameArray.count
+            return playNameArray.count
         }else if section == 1 {
             return ageArray.count
         }else if section == 2 {
-            return schoolArray.count
+            return typeArray.count
         }
         return 1
     }
-
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // TableViewのセルがタップされた時の処理
         self.performSegueWithIdentifier("toM", sender: nil)
         
         table.deselectRowAtIndexPath(indexPath, animated: true)
     }
-
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as!UITableViewCell
         if indexPath.section == 0 {
-            cell.textLabel?.text = categoryNameArray[indexPath.row]
+            cell.textLabel?.text = playNameArray[indexPath.row]
         }else if indexPath.section == 1 {
             cell.textLabel?.text = ageArray[indexPath.row]
         }else if indexPath.section == 2 {
-            cell.textLabel?.text = schoolArray[indexPath.row]
+            cell.textLabel?.text = typeArray[indexPath.row]
         }
         
         return cell
     }
-
 }

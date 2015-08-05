@@ -164,10 +164,4 @@ class RankTableViewController: UITableViewController, UIWebViewDelegate {
             SVProgressHUD.dismiss()
         }
     }
-    
-    /*
-    @IBAction func backToTop() {
-    self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    */
 }
