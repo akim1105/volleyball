@@ -108,6 +108,7 @@ class MovieViewController: UIViewController, UIWebViewDelegate, UITableViewDataS
             if error != nil {
                 self.showErrorAlert(error!)
             }else {
+                var number: Int = 0
                 for object in objects! {
                     // 自分がお気に入りに登録した動画だけ抽出
                     if NSUserDefaults.standardUserDefaults().objectForKey("URL") as! String == (object.valueForKey("URL") as! String) {
@@ -133,9 +134,13 @@ class MovieViewController: UIViewController, UIWebViewDelegate, UITableViewDataS
                         let userImageFile = object.valueForKey("Image") as! PFFile
                         self.images.append(UIImage(data:userImageFile.getData()!)!)
                     }
+                    number = number + 1
+                    if number > 19 {
+                        self.movieList.reloadData()
+                        SVProgressHUD.dismiss()
+                        return
+                    }
                 }
-                self.movieList.reloadData()
-                SVProgressHUD.dismiss()
             }
         }
     }

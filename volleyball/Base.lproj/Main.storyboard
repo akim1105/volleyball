@@ -111,11 +111,11 @@
                         <viewControllerLayoutGuide type="bottom" id="eq1-Yd-UyQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="h3B-uo-RRe">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wZ6-cm-vmk">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="2kx-HB-bVL">
                                     <size key="itemSize" width="106" height="106"/>
@@ -143,16 +143,79 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="みんなの写真" id="7ws-qW-VPz">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="MB6-E3-f24"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="MB6-E3-f24">
+                            <connections>
+                                <action selector="selectImage" destination="B2B-Hr-1ES" id="vvH-AP-Ld5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="wZ6-cm-vmk" id="Sds-ep-6ln"/>
+                        <segue destination="cZN-89-X8d" kind="push" identifier="toEdit" id="8aQ-sW-vyy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddd-0j-buv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2779" y="625"/>
+            <point key="canvasLocation" x="2749" y="626"/>
+        </scene>
+        <!--写真を投稿-->
+        <scene sceneID="vlI-Hq-3j3">
+            <objects>
+                <viewController id="cZN-89-X8d" customClass="AddViewController" customModule="volleyball" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EsT-Hh-d1S"/>
+                        <viewControllerLayoutGuide type="bottom" id="UuJ-bn-EAA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wXc-qV-qQV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U5q-96-Ors">
+                                <rect key="frame" x="35" y="89" width="250" height="250"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dCY-Z5-ks6">
+                                <rect key="frame" x="81" y="396" width="214" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="コメント" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4e3-Qe-4SE">
+                                <rect key="frame" x="26" y="400" width="47" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="名前" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Wc-kZ-GgJ">
+                                <rect key="frame" x="26" y="362" width="47" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JC4-En-mOc">
+                                <rect key="frame" x="81" y="358" width="214" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="写真を投稿" id="Ui1-Vi-4XZ">
+                        <barButtonItem key="rightBarButtonItem" title="送信" id="Tmh-CE-yeh">
+                            <connections>
+                                <action selector="sendToParse" destination="cZN-89-X8d" id="QXv-Yj-DQF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="commentField" destination="dCY-Z5-ks6" id="XuA-It-ETO"/>
+                        <outlet property="imageView" destination="U5q-96-Ors" id="S7I-Ns-k2r"/>
+                        <outlet property="nameField" destination="JC4-En-mOc" id="Cbm-QQ-qsY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="63c-qf-9Cv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3170" y="626"/>
         </scene>
         <!--ランキング-->
         <scene sceneID="b23-1q-WyK">
