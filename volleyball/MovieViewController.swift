@@ -56,10 +56,6 @@ class MovieViewController: UIViewController, UIWebViewDelegate, UITableViewDataS
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func showGuruguru(){
-        SVProgressHUD.show()
-    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // セルの数
         return images.count

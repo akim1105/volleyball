@@ -59,6 +59,10 @@
 		AF8C99C91B6F4BE60054D6D4 /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF8C99C81B6F4BE60054D6D4 /* button@2x.png */; };
 		AFE9233D1B6FEBA70003A2B4 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE9233C1B6FEBA70003A2B4 /* PushNotificationManager.swift */; };
 		AFE975521B70D2A80094F1A6 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE975511B70D2A80094F1A6 /* AddViewController.swift */; };
+		AFE975571B734C460094F1A6 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE975561B734C460094F1A6 /* PreviewViewController.swift */; };
+		AFE9755B1B737D150094F1A6 /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AFE975581B737D150094F1A6 /* facebook@2x.png */; };
+		AFE9755C1B737D150094F1A6 /* line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AFE975591B737D150094F1A6 /* line@2x.png */; };
+		AFE9755D1B737D150094F1A6 /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AFE9755A1B737D150094F1A6 /* twitter@2x.png */; };
 		C67D8F339D9A987F7D465318 /* libPods-volleyball.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8106EBEA270A682BC27D28 /* libPods-volleyball.a */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +136,10 @@
 		AF8C99C81B6F4BE60054D6D4 /* button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button@2x.png"; sourceTree = "<group>"; };
 		AFE9233C1B6FEBA70003A2B4 /* PushNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		AFE975511B70D2A80094F1A6 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		AFE975561B734C460094F1A6 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		AFE975581B737D150094F1A6 /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook@2x.png"; sourceTree = "<group>"; };
+		AFE975591B737D150094F1A6 /* line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "line@2x.png"; sourceTree = "<group>"; };
+		AFE9755A1B737D150094F1A6 /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter@2x.png"; sourceTree = "<group>"; };
 		CF8106EBEA270A682BC27D28 /* libPods-volleyball.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-volleyball.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -229,6 +237,9 @@
 		41B62E931B469204004A4EE1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AFE975581B737D150094F1A6 /* facebook@2x.png */,
+				AFE975591B737D150094F1A6 /* line@2x.png */,
+				AFE9755A1B737D150094F1A6 /* twitter@2x.png */,
 				AF8C99C81B6F4BE60054D6D4 /* button@2x.png */,
 				AF380B721B6263D800F77D76 /* tabbar */,
 				41EDDC211B59196100912880 /* icon */,
@@ -293,6 +304,7 @@
 				417CB34B1B54001400CC00C9 /* FavoriteTableViewController.swift */,
 				41E298401B4BEF58003611E4 /* MovieViewController.swift */,
 				41580E551B4FC9BF00118654 /* PhotoViewController.swift */,
+				AFE975561B734C460094F1A6 /* PreviewViewController.swift */,
 				416DA2821B4FDE55003747C8 /* InfoViewController.swift */,
 				413192CA1B523EDC00309F82 /* HomePageViewController.swift */,
 				AFE975511B70D2A80094F1A6 /* AddViewController.swift */,
@@ -458,6 +470,7 @@
 				AF8C99C71B6F443B0054D6D4 /* LOGOG_EG.TTF in Resources */,
 				415634C01B48F497003C800D /* kaikai.jpg in Resources */,
 				AF8C99C31B6F3A160054D6D4 /* photos-simple-7.png in Resources */,
+				AFE9755B1B737D150094F1A6 /* facebook@2x.png in Resources */,
 				41EDDC281B59196200912880 /* Icon-40@2x.png in Resources */,
 				415634BF1B48F497003C800D /* hukuoka.jpg in Resources */,
 				415634BC1B48F497003C800D /* asdf.jpg in Resources */,
@@ -469,7 +482,9 @@
 				41B62E781B4673EC004A4EE1 /* LaunchScreen.xib in Resources */,
 				415634C21B48F497003C800D /* seitoku.jpg in Resources */,
 				41B62E751B4673EC004A4EE1 /* Images.xcassets in Resources */,
+				AFE9755D1B737D150094F1A6 /* twitter@2x.png in Resources */,
 				AF8C99C41B6F3A160054D6D4 /* rss-7.png in Resources */,
+				AFE9755C1B737D150094F1A6 /* line@2x.png in Resources */,
 				416DA2871B4FE37B003747C8 /* InfoTableViewCell.xib in Resources */,
 				AF380B791B6263D800F77D76 /* search-7.png in Resources */,
 				AF380B7A1B6263D800F77D76 /* star-7.png in Resources */,
@@ -535,6 +550,7 @@
 				41E298411B4BEF58003611E4 /* MovieViewController.swift in Sources */,
 				41B62E6E1B4673EC004A4EE1 /* AppDelegate.swift in Sources */,
 				416DA2831B4FDE55003747C8 /* InfoViewController.swift in Sources */,
+				AFE975571B734C460094F1A6 /* PreviewViewController.swift in Sources */,
 				413192C31B520F4B00309F82 /* CategoryTableViewController.swift in Sources */,
 				413192C91B522E9100309F82 /* Category2TableViewController.swift in Sources */,
 				413192CB1B523EDC00309F82 /* HomePageViewController.swift in Sources */,
