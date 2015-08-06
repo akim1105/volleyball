@@ -13,12 +13,18 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
     @IBOutlet var collectionView: UICollectionView!
     
     var photoArray = [UIImage]()
+    var lookArray = [Int]()
+    var likeArray = [Int]()
+    var commentArray = [String]()
+    var nameArray = [String]()
     var photoImage: UIImage!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.dataSource = self
+        collectionView.delegate = self
+        
         self.loadData()
     }
 
@@ -38,15 +44,22 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
         return cell
     }
     
-    // 画面遷移する前に自動的に呼ばれるメソッド
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let addViewController = segue.destinationViewController as! AddViewController
-        addViewController.photoImage = self.photoImage
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        var ud = NSUserDefaults.standardUserDefaults()
+        ud.setObject(UIImagePNGRepresentation(photoArray[indexPath.row]), forKey: "photo")
+        ud.setObject(lookArray[indexPath.row], forKey: "look")
+        ud.setObject(likeArray[indexPath.row], forKey: "like")
+        ud.setObject(commentArray[indexPath.row], forKey: "comment")
+        ud.setObject(nameArray[indexPath.row], forKey: "name")
+        ud.synchronize()
+        // self.navigationController?.performSegueWithIdentifier("toPreview", sender: nil)
     }
     
     @IBAction func selectImage() {
         var imagePicker: UIImagePickerController = UIImagePickerController()
         imagePicker.delegate = self
+        imagePicker.allowsEditing = true
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         self.presentViewController(imagePicker, animated:true, completion:nil)
     }
@@ -58,13 +71,19 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     // MARK: UIImagePickerController Delegate
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        photoImage = image
+        var ud = NSUserDefaults.standardUserDefaults()
+        ud.setObject(UIImagePNGRepresentation(image), forKey: "addImage")
+        ud.synchronize()
         picker.dismissViewControllerAnimated(true, completion: nil);
-        self.performSegueWithIdentifier("toEdit", sender: nil)
+        self.performSegueWithIdentifier("toAdd", sender: nil)
     }
     
     func loadData() {
-        
+        photoArray = [UIImage]()
+        lookArray = [Int]()
+        likeArray = [Int]()
+        commentArray = [String]()
+        nameArray = [String]()
         SVProgressHUD.showWithStatus("ロード中", maskType: SVProgressHUDMaskType.Black)
         var query: PFQuery = PFQuery(className: "Photo")
         query.findObjectsInBackgroundWithBlock {
@@ -74,8 +93,32 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
             }else {
                 for object in objects! {
                     if object["image"] != nil {
-                        let userImageFile = object.valueForKey("image") as! PFFile
-                        self.photoArray.append(UIImage(data:userImageFile.getData()!)!)
+                        let photo = object.valueForKey("image") as! PFFile
+                        self.photoArray.append(UIImage(data:photo.getData()!)!)
+                    }
+                    if object["look"] != nil {
+                        let look = object.valueForKey("look") as! Int
+                        self.lookArray.append(look)
+                    }else {
+                        self.lookArray.append(0)
+                    }
+                    if object["like"] != nil {
+                        let like = object.valueForKey("like") as! Int
+                        self.likeArray.append(like)
+                    }else {
+                        self.likeArray.append(0)
+                    }
+                    if object["comment"] != nil {
+                        let comment = object.valueForKey("comment") as! String
+                        self.commentArray.append(comment)
+                    }else {
+                        self.commentArray.append("No comment")
+                    }
+                    if object["name"] != nil {
+                        let comment = object.valueForKey("name") as! String
+                        self.nameArray.append(comment)
+                    }else {
+                        self.nameArray.append("No name")
                     }
                 }
                 self.collectionView.reloadData()
@@ -106,6 +149,15 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         if SVProgressHUD.isVisible() {
             SVProgressHUD.dismiss()
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toPreview" {
+            // var previewViewController = segue.destinationViewController as! PreviewViewController
+            // previewViewController.photoImage = self.photoImage
+        }else if segue.identifier == "toAdd" {
+            
         }
     }
 }

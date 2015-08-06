@@ -43,7 +43,7 @@ class FavoriteTableViewController: UITableViewController, UIWebViewDelegate, UIA
     }
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        if buttonIndex == 0 {
+        if buttonIndex == 1 {
             PushNotificationManager.openAppSettingPage()
         }
     }
@@ -114,6 +114,13 @@ class FavoriteTableViewController: UITableViewController, UIWebViewDelegate, UIA
     
     // Get data from Parse
     func loadData(){
+        movieNameArray = [String]() //動画のタイトルを入れる用の配列
+        good = [Int]()
+        count = [Int]()
+        time = [String]()
+        URLArray = [String]()
+        images = [UIImage]()
+        objectIds = [String]()
         SVProgressHUD.showWithStatus("ロード中", maskType: SVProgressHUDMaskType.Clear)
         
         var query: PFQuery = PFQuery(className: "Movie")
@@ -175,5 +182,9 @@ class FavoriteTableViewController: UITableViewController, UIWebViewDelegate, UIA
         if SVProgressHUD.isVisible() {
             SVProgressHUD.dismiss()
         }
+    }
+    
+    @IBAction func refresh() {
+        self.loadData()
     }
 }

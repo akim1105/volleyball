@@ -15,14 +15,18 @@ class HomePageViewController: UIViewController, UIWebViewDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        
         webView.delegate = self
-        var url = NSURL(string: "http://www.fujitv.co.jp/sports/volley/haruko/schedule.html")
+        
+        // InfoViewControllerでセルを選択したときに保存しておいたURLを呼び出す
+        var ud = NSUserDefaults.standardUserDefaults()
+        let URLString = ud.objectForKey("URL") as! String
+        
+        // URLの文字列をWebに対してリクエスト
+        var url = NSURL(string: URLString)
         var urlRequest: NSURLRequest = NSURLRequest(URL: url!)
         webView.allowsInlineMediaPlayback = true;
+        webView.scalesPageToFit = true
         webView.loadRequest(urlRequest)
-
     }
 
     override func didReceiveMemoryWarning() {
