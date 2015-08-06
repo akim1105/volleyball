@@ -44,7 +44,7 @@ class CategoryTableViewController: UIViewController,UIWebViewDelegate, UITableVi
         }else if section == 1 {
             return "年代"
         }else if section == 2 {
-            return "じっくり見たい人向け"
+            return "じっくり"
         }
         return "タイトル"
     }
@@ -60,10 +60,22 @@ class CategoryTableViewController: UIViewController,UIWebViewDelegate, UITableVi
         return 1
     }
     
+    override func performSegueWithIdentifier(identifier: String?, sender: AnyObject?) {
+        
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // TableViewのセルがタップされた時の処理
+        let ud = NSUserDefaults.standardUserDefaults()
+        if indexPath.section == 0 {
+            ud.setObject(playNameArray[indexPath.row], forKey: "tag")
+        }else if indexPath.section == 1 {
+            ud.setObject(ageArray[indexPath.row], forKey: "tag")
+        }else if indexPath.section == 2 {
+            ud.setObject(typeArray[indexPath.row], forKey: "tag")
+        }
+        ud.synchronize()
         self.performSegueWithIdentifier("toM", sender: nil)
-        
         table.deselectRowAtIndexPath(indexPath, animated: true)
     }
     

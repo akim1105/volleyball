@@ -189,8 +189,9 @@
 				AFE9233B1B6FEB850003A2B4 /* Utilities */,
 				41B62E6D1B4673EC004A4EE1 /* AppDelegate.swift */,
 				41B62E711B4673EC004A4EE1 /* Main.storyboard */,
-				AF380B701B62306700F77D76 /* Controllers */,
+				AFE975531B7244680094F1A6 /* Models */,
 				AF380B711B62308A00F77D76 /* Views */,
+				AF380B701B62306700F77D76 /* Controllers */,
 				41B62E741B4673EC004A4EE1 /* Images.xcassets */,
 				41B62E761B4673EC004A4EE1 /* LaunchScreen.xib */,
 				AFE9233A1B6FEB690003A2B4 /* Resources */,
@@ -346,6 +347,13 @@
 				AFE9233C1B6FEBA70003A2B4 /* PushNotificationManager.swift */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		AFE975531B7244680094F1A6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

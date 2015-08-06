@@ -22,8 +22,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // MARK: - Parse
         Parse.setApplicationId(Id, clientKey: Key)
         PFUser.enableAutomaticUser()
+        /*
         var defaultACL = PFACL()
         PFACL.setDefaultACL(defaultACL, withAccessForCurrentUser: true)
+        */
+        
+        let acl = PFACL()
+        acl.setPublicReadAccess(true)
+        acl.setPublicWriteAccess(true)
 
         if application.applicationState != UIApplicationState.Background {
             // Track an app open here if we launch with a push, unless

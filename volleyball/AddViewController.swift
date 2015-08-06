@@ -76,6 +76,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
             }else {
                 println("Object has been saved.")
                 SVProgressHUD.showSuccessWithStatus("投稿完了!")
+                self.navigationController?.popViewControllerAnimated(true)
             }
         }
     }

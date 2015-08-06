@@ -51,6 +51,10 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
         self.presentViewController(imagePicker, animated:true, completion:nil)
     }
     
+    @IBAction func refresh() {
+        self.photoArray = [UIImage]()
+        self.loadData()
+    }
     
     // MARK: UIImagePickerController Delegate
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
@@ -59,10 +63,11 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
         self.performSegueWithIdentifier("toEdit", sender: nil)
     }
     
-    func loadData(){
+    func loadData() {
+        
         SVProgressHUD.showWithStatus("ロード中", maskType: SVProgressHUDMaskType.Black)
-        var usersData: PFQuery = PFQuery(className: "Photo")
-        usersData.findObjectsInBackgroundWithBlock {
+        var query: PFQuery = PFQuery(className: "Photo")
+        query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]?, error: NSError?) -> Void in
             if error != nil {
                 self.showErrorAlert(error!)
@@ -81,7 +86,6 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     func showErrorAlert(error: NSError) {
         var errorMessage = error.description
-        
         if error.code == 209 {
             NSLog("session token == %@", PFUser.currentUser()!.sessionToken!)
             errorMessage = "セッショントークンが切れました。ログアウトします。"
