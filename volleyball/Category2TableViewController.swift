@@ -19,52 +19,19 @@ class Category2TableViewController: UITableViewController, UIWebViewDelegate  {
     var time = [String]()
     var URLArray = [String]()
     var imageArray = [PFFile]()
+    var objectIds = [String]()
     var images = [UIImage]()
-
-    
-    //var movieNameArray = [String]()
-    //var like = [Int]()
-   // var look = [Int]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         table.dataSource = self
         table.delegate = self
         
         tableView.registerNib(UINib(nibName: "MovieTableViewCell", bundle: nil),
             forCellReuseIdentifier: "Cell")
-        
-        self.loadData { (objects, error) -> () in
-            self.movieArray = objects
-            
-            for object in objects {
-                self.imageArray.append(object.valueForKey("Image") as! PFFile)
-                for imageFile in self.imageArray {
-                    imageFile.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
-                        if(error == nil) {
-                            self.images.append(UIImage(data: imageData!)!)
-                            self.table.reloadData()
-                        }
-                    })
-                    
-                }
-            }
-        }
 
-        
-        
-        
-       // movieNameArray = ["＜春高バレー＞　星城高校 東京体育館","い","う"]
-       // like = [3,2,1]
-       // look = [12,23,34]
-
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -110,6 +77,9 @@ class Category2TableViewController: UITableViewController, UIWebViewDelegate  {
         cell.looklabel?.text = String(count[indexPath.row])
         cell.timelabel?.text = String(time[indexPath.row])
         cell.imageView?.image = images[indexPath.row]
+        
+        cell.blackView.hidden = true
+        cell.rankLabel.hidden = true
 
         return cell
     }
@@ -123,74 +93,68 @@ class Category2TableViewController: UITableViewController, UIWebViewDelegate  {
         self.performSegueWithIdentifier("toMovie", sender: nil)
     }
 
-    func loadData(callback:([PFObject]!, NSError!) -> ())  {
+    // Get data from Parse
+    func loadData(){
+        SVProgressHUD.showWithStatus("ロード中", maskType: SVProgressHUDMaskType.Clear)
+        
         var query: PFQuery = PFQuery(className: "Movie")
         query.orderByAscending("createdAt")
-        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-            if (error != nil){
-                // エラー処理
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]?, error: NSError?) -> Void in
+            if error != nil {
+                self.showErrorAlert(error!)
+            }else {
+                for object in objects! {
+                    // 動画のtagを抽出
+                    if object.valueForKey("tag") != nil {
+                        if PFInstallation.currentInstallation().objectId != nil {
+                            var tagArray = object.valueForKey("tag") as! NSArray
+                            for tag in tagArray {
+                                if tag as! String == NSUserDefaults.standardUserDefaults().objectForKey("tag") as! String {
+                                    self.movieNameArray.append(object.valueForKey("title") as! String)
+                                    self.good.append(object.valueForKey("good") as! Int)
+                                    self.count.append(object.valueForKey("count") as! Int)
+                                    self.time.append(object.valueForKey("time") as! String)
+                                    self.URLArray.append(object.valueForKey("URL") as! String)
+                                    self.objectIds.append(object.valueForKey("objectId") as! String)
+                                    if object["Image"] != nil {
+                                        let userImageFile = object.valueForKey("Image") as! PFFile
+                                        self.images.append(UIImage(data:userImageFile.getData()!)!)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                self.table.reloadData()
+                SVProgressHUD.dismiss()
             }
-            for object in objects! {
-                self.imageArray.append(object.valueForKey("Image") as! PFFile)
-            }
-            callback(objects as! [PFObject], error)
         }
     }
-
-
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
-        return cell
+    
+    func showErrorAlert(error: NSError) {
+        var errorMessage = error.description
+        
+        if error.code == 209 {
+            NSLog("session token == %@", PFUser.currentUser()!.sessionToken!)
+            errorMessage = "セッショントークンが切れました。ログアウトします。"
+            PFUser.currentUser()?.delete()
+            SVProgressHUD.showSuccessWithStatus("ログアウトしました", maskType: SVProgressHUDMaskType.Black)
+            self.dismissViewControllerAnimated(true, completion: nil)
+            PFUser.enableRevocableSessionInBackgroundWithBlock { (error: NSError?) -> Void in
+                println("Session token deprecated")
+            }
+        }
+        var alertController = UIAlertController(title: "通信エラー", message: errorMessage, preferredStyle: .Alert)
+        let okAction = UIAlertAction(title: "OK", style: .Cancel) {
+            action in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        alertController.addAction(okAction)
+        presentViewController(alertController, animated: true, completion: nil)
+        
+        if SVProgressHUD.isVisible() {
+            SVProgressHUD.dismiss()
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

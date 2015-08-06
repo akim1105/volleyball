@@ -29,7 +29,6 @@ class FavoriteTableViewController: UITableViewController, UIWebViewDelegate, UIA
         
         tableView.registerNib(UINib(nibName: "MovieTableViewCell", bundle: nil),
             forCellReuseIdentifier: "Cell")
-        
         self.loadData()
     }
     
@@ -37,8 +36,8 @@ class FavoriteTableViewController: UITableViewController, UIWebViewDelegate, UIA
         let isPushEnabled = PushNotificationManager.isPushNotificationEnable
         var message = ""
         if isPushEnabled != true {
-            message = "プッシュ通知がOFFになっています"
-            var alertView: UIAlertView = UIAlertView(title: "プッシュ通知をONにしてください", message: message, delegate: self, cancelButtonTitle: "OK")
+            message = "プッシュ通知を許可すると、お気に入り機能を使うことができます。"
+            var alertView: UIAlertView = UIAlertView(title: "プッシュ通知がOFFになっています", message: message, delegate: self, cancelButtonTitle: "あとで", otherButtonTitles: "OK")
             alertView.show()
         }
     }

@@ -44,19 +44,19 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="大会名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1NB-u5-C8K">
                                 <rect key="frame" x="67" y="0.0" width="126" height="46"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="場所" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gK5-SJ-24c">
                                 <rect key="frame" x="194" y="0.0" width="126" height="46"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="日程" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfP-ff-3fa">
                                 <rect key="frame" x="0.0" y="0.0" width="66" height="46"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -145,6 +145,11 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="みんなの写真" id="7ws-qW-VPz">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="a1I-nX-rcs">
+                            <connections>
+                                <action selector="refresh" destination="B2B-Hr-1ES" id="PZ3-Oz-ejM"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="MB6-E3-f24">
                             <connections>
                                 <action selector="selectImage" destination="B2B-Hr-1ES" id="vvH-AP-Ld5"/>
@@ -396,12 +401,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="50" id="LMl-LJ-BdI">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="50" id="LMl-LJ-BdI">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LMl-LJ-BdI" id="yrX-zf-3cT">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="27d-TL-Uh1" kind="push" id="d51-1x-lnu"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -411,7 +419,6 @@
                     <navigationItem key="navigationItem" title="カテゴリ" id="LlR-fu-Ulb"/>
                     <connections>
                         <outlet property="table" destination="lM5-X3-td1" id="qXC-5y-W1O"/>
-                        <segue destination="27d-TL-Uh1" kind="push" identifier="toM" id="Yeb-Ie-7WQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ar-9t-6Tf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -615,6 +622,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ylw-TQ-tCD"/>
+        <segue reference="VPh-Qv-RCB"/>
     </inferredMetricsTieBreakers>
 </document>

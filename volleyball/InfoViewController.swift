@@ -12,38 +12,43 @@ class InfoViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBOutlet var table: UITableView!
     
-    var number: Int!
-
+    var tourArray = [String]()
+    var scheduleArray = [String]()
+    var placeArray = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         table.dataSource = self
         table.delegate = self
         
         table.registerNib(UINib(nibName: "InfoTableViewCell", bundle: nil),
             forCellReuseIdentifier: "Cell")
+        
+        tourArray = ["あああ大会","いいい大会","ううう大会"]
+        scheduleArray = ["8/12","2/8","9/26"]
+        placeArray = ["あ体育館","い体育館","う体育館"]
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return tourArray.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as!InfoTableViewCell
         
-        cell.tourlabel.text = "全国高等学校バレーボール大会"
-        cell.schedulelabel.text = "8月23日"
-        cell.placelabel.text = "東京体育館"
+        cell.tourlabel.text = tourArray[indexPath.row]
+        cell.schedulelabel.text = scheduleArray[indexPath.row]
+        cell.placelabel.text = placeArray[indexPath.row]
         
         return cell
     }
-
-    
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // TableViewのセルがタップされた時の処理
@@ -53,9 +58,6 @@ class InfoViewController: UIViewController, UITableViewDataSource, UITableViewDe
         table.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }
-
-
-
 
 
 
