@@ -37,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5nc-LN-kkl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3167" y="1441"/>
+            <point key="canvasLocation" x="3065" y="1441"/>
         </scene>
         <!--写真-->
         <scene sceneID="hU2-RK-WTH">
@@ -78,7 +78,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="good.png" translatesAutoresizingMaskIntoConstraints="NO" id="bh6-Vw-kiU">
                                                     <rect key="frame" x="8" y="84" width="21" height="21"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWO-WF-iwd">
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWO-WF-iwd">
                                                     <rect key="frame" x="37" y="84" width="61" height="21"/>
                                                     <fontDescription key="fontDescription" name="VD-LogoG-Extra-G" family="VD-LogoG-Extra-G" pointSize="14"/>
                                                     <nil key="highlightedColor"/>
@@ -711,7 +711,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Car-G0-2NE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2749" y="1441"/>
+            <point key="canvasLocation" x="2639" y="1441"/>
         </scene>
     </scenes>
     <resources>

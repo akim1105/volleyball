@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+import SwiftyJSON
 
 class RankTableViewController: UITableViewController, UIWebViewDelegate {
     
@@ -64,8 +66,8 @@ class RankTableViewController: UITableViewController, UIWebViewDelegate {
         cell.looklabel?.text = formatter.stringFromNumber(count[indexPath.row])
         cell.timelabel?.text = String(time[indexPath.row])
         //cell.imageView?.image = images[indexPath.row]
-        cell.movieimageView.image = images[indexPath.row]
-        cell.rankLabel.text = String(format: "%d", indexPath.row + 1)
+        cell.movieimageView?.image = images[indexPath.row]
+        cell.rankLabel?.text = String(format: "%d", indexPath.row + 1)
         
         // セルの境界線
         if (cell.respondsToSelector(Selector("setSeparatorInset:"))) {
@@ -107,6 +109,8 @@ class RankTableViewController: UITableViewController, UIWebViewDelegate {
     func loadData(){
         SVProgressHUD.showWithStatus("ロード中", maskType: SVProgressHUDMaskType.Clear)
         
+        self.requestMovieInfo()
+        
         var query: PFQuery = PFQuery(className: "Movie")
         query.orderByAscending("createdAt")
         query.findObjectsInBackgroundWithBlock {
@@ -116,7 +120,7 @@ class RankTableViewController: UITableViewController, UIWebViewDelegate {
             }else {
                 var number: Int = 0
                 for object in objects! {
-                    NSLog("object == %@", object as! PFObject)
+                    // NSLog("object == %@", object as! PFObject)
                     self.movieNameArray.append(object.valueForKey("title") as! String)
                     self.good.append(object.valueForKey("good") as! Int)
                     self.count.append(object.valueForKey("count") as! Int)
@@ -164,4 +168,35 @@ class RankTableViewController: UITableViewController, UIWebViewDelegate {
             SVProgressHUD.dismiss()
         }
     }
+    
+    func requestMovieInfo() {
+        var apiUrl: NSString = "https://www.googleapis.com/youtube/v3/videos?id=PqJNc9KVIZE&key=AIzaSyCiODzakHB--mxExmtRiUURUnPLivWxhSs&fields=items(id,snippet(channelTitle,title,thumbnails),statistics)&part=snippet,contentDetails,statistics"
+        
+        // create request object
+        var requestUrl: NSURL = NSURL(string: apiUrl as String)!
+        var request: NSURLRequest = NSURLRequest(URL: requestUrl)
+        
+        // request to api
+        var data: NSData =  NSURLConnection.sendSynchronousRequest(request, returningResponse: nil, error: NSErrorPointer())!
+        
+        // read json response
+        let json: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: nil) as! NSDictionary
+        
+        NSLog("JSON ====== %@", json)
+    }
+    
+    /*
+    func requestWithSwiftyJSON() {
+        var url = "https://www.googleapis.com/youtube/v3/videos?id=PqJNc9KVIZE&key=AIzaSyCiODzakHB--mxExmtRiUURUnPLivWxhSs&fields=items(id,snippet(channelTitle,title,thumbnails),statistics)&part=snippet,contentDetails,statistics"
+        var reqest = NSURLRequest(URL: NSURL(string: url)!)
+        
+        NSURLConnection.sendAsynchronousRequest(reqest,queue: NSOperationQueue.mainQueue(),completionHandler:{
+            (res: NSURLResponse!, data: NSData!, error: NSError!) in
+            let json = JSON(data)
+            println(json)
+            let string = json["items"][0]["id"].stringValue
+            NSLog("JSON == %@", string)
+        })
+    }
+     */
 }

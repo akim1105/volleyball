@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class MovieViewController: UIViewController, UIWebViewDelegate, UITableViewDataSource, UITableViewDelegate {
     
