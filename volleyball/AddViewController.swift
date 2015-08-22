@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class AddViewController: UIViewController, UITextFieldDelegate {
     
@@ -73,28 +74,34 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func sendToParse() {
-        SVProgressHUD.showWithStatus("保存中...")
-        let photoObject = PFObject(className: "Photo")
-        photoObject["comment"] = commentField.text
-        photoObject["name"] = nameField.text
-        photoObject["look"] = 0
-        photoObject["like"] = 0
-        let resizedSize = CGSizeMake(photoImage.size.width / 10, photoImage.size.width / 10);
-        UIGraphicsBeginImageContext(resizedSize);
-        photoImage.drawInRect(CGRectMake(0, 0, resizedSize.width, resizedSize.height))
-        let resizedImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
         
-        var imageData: NSData = UIImageJPEGRepresentation(photoImage, 0.1)
-        var file: PFFile = PFFile(name: "image.jpg", data: imageData)
-        photoObject["image"] = file
-        photoObject.saveInBackgroundWithBlock { (succeeded, error) -> Void in
-            if error != nil {
-                NSLog("error == %@", error!)
-            }else {
-                println("Object has been saved.")
-                SVProgressHUD.showSuccessWithStatus("投稿完了!")
-                self.navigationController?.popViewControllerAnimated(true)
+        if nameField.text == nil || commentField.text == nil {
+            let alert = UIAlertView(title: "入力してください", message: "タイトル、またはコメントに空欄があります。入力して下さい。", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }else {
+            SVProgressHUD.showWithStatus("保存中...")
+            let photoObject = PFObject(className: "Photo")
+            photoObject["comment"] = commentField.text
+            photoObject["name"] = nameField.text
+            photoObject["look"] = 0
+            photoObject["like"] = 0
+            let resizedSize = CGSizeMake(photoImage.size.width / 10, photoImage.size.width / 10);
+            UIGraphicsBeginImageContext(resizedSize);
+            photoImage.drawInRect(CGRectMake(0, 0, resizedSize.width, resizedSize.height))
+            let resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            
+            var imageData: NSData = UIImageJPEGRepresentation(photoImage, 0.1)
+            var file: PFFile = PFFile(name: "image.jpg", data: imageData)
+            photoObject["image"] = file
+            photoObject.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+                if error != nil {
+                    NSLog("error == %@", error!)
+                }else {
+                    println("Object has been saved.")
+                    SVProgressHUD.showSuccessWithStatus("投稿完了!")
+                    self.navigationController?.popViewControllerAnimated(true)
+                }
             }
         }
     }
@@ -103,7 +110,6 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         var query: PFQuery = PFQuery(className: "TestObject")
         query.whereKey("name", containsString: "Araki")
         query.orderByAscending("createdAt")
-        
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             for object in (objects as! [PFObject]) {
                 

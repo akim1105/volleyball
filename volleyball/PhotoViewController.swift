@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class PhotoViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -40,7 +41,9 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! UICollectionViewCell
         var imageView = cell.viewWithTag(1) as! UIImageView!
+        var likeLabel = cell.viewWithTag(2) as! UILabel!
         imageView.image = photoArray[indexPath.row]
+        likeLabel.text = String(likeArray[indexPath.row])
         return cell
     }
     

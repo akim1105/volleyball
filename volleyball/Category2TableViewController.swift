@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class Category2TableViewController: UITableViewController, UIWebViewDelegate  {
     

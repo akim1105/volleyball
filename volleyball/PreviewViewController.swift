@@ -31,7 +31,8 @@ class PreviewViewController: UIViewController {
         imageView.clipsToBounds = true
         
         lookLabel.text = String(0)
-        likeLabel.text = String(0)
+        var like = NSUserDefaults.standardUserDefaults().integerForKey("like")
+        likeLabel.text = String(like)
         commentLabel.text = NSUserDefaults.standardUserDefaults().objectForKey("comment") as? String
         SVProgressHUD.show()
     }
